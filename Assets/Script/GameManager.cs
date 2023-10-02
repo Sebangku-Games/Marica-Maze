@@ -1,46 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject RoadHolder;
-    public GameObject[] Road;
+    private List<Pipe> connectedPipes = new List<Pipe>();
 
-    [SerializeField]
-    int totalRoad = 0;
-    [SerializeField]
-    int correctedRoad = 0;
-
-    public GameObject WinText;
-    // Start is called before the first frame update
-    void Start()
+    // Panggil metode ini saat pipa terhubung.
+    public void PipeConnected(Pipe pipe)
     {
-        WinText.SetActive(false);
-        totalRoad = RoadHolder.transform.childCount;
-
-        Road= new GameObject[totalRoad];
-        for (int i = 0; i < Road.Length; i++)
+        if (!connectedPipes.Contains(pipe))
         {
-            Road[i]= RoadHolder.transform.GetChild(i).gameObject;
-        }
-        
-    }
-    public void correctMove()
-    {
-        correctedRoad += 1;
-
-        Debug.Log("correct Move");
-
-        if (correctedRoad == totalRoad)
-        {
-            Debug.Log("You win!");
-            WinText.SetActive(true);
+            connectedPipes.Add(pipe);
+            CheckWinCondition();
         }
     }
-    public void wrongMove()
+
+    // Panggil metode ini saat pipa terputus.
+    public void PipeDisconnected(Pipe pipe)
     {
-        correctedRoad -= 1;
+        if (connectedPipes.Contains(pipe))
+        {
+            connectedPipes.Remove(pipe);
+        }
+    }
+
+    // Metode untuk memeriksa apakah pemain memenangkan permainan.
+    private void CheckWinCondition()
+    {
+        // Tambahkan logika di sini untuk memeriksa apakah pemain menang.
+        // Contohnya, jika semua pipa terhubung, maka pemain menang.
+        bool allPipesConnected = connectedPipes.Count == 2;
+
+        if (allPipesConnected)
+        {
+            // Tambahkan tindakan yang perlu diambil saat pemain menang.
+            Debug.Log("Pemain menang!");
+        }
     }
 }
