@@ -1,41 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private List<Pipe> connectedPipes = new List<Pipe>();
+    public GameObject RoadHolder;
+    public GameObject[] Road;
+    public TextMeshProUGUI textTimer;
+    public float Waktu = 100;
+    public bool GameAktif = true;
+    float s;
 
-    // Panggil metode ini saat pipa terhubung.
-    public void PipeConnected(Pipe pipe)
+    [SerializeField]
+    int totalRoad = 0;
+    [SerializeField]
+    int correctedRoad = 0;
+
+    public GameObject WinText;
+    public GameObject LoseText;
+    void Start()
     {
-        if (!connectedPipes.Contains(pipe))
+        WinText.SetActive(false);
+        totalRoad = RoadHolder.transform.childCount;
+
+        Road= new GameObject[totalRoad];
+        for (int i = 0; i < Road.Length; i++)
         {
-            connectedPipes.Add(pipe);
-            CheckWinCondition();
+            Road[i]= RoadHolder.transform.GetChild(i).gameObject;
+        }
+        
+    }
+    private void Update()
+    {
+        if (GameAktif)
+        {
+            s += Time.deltaTime;
+            if (s >= 1)
+            {
+                Waktu--;
+                s = 0;
+            }
+        }
+        if (GameAktif && Waktu<= 0)
+        {
+            Debug.Log("Lose");
+            LoseText.SetActive(true);
+            GameAktif = false;
+            StopAllRotations();
+        }
+        SetText();
+    }
+    void SetText()
+    {
+        int Menit = Mathf.FloorToInt(Waktu / 60);
+        int Detik = Mathf.FloorToInt(Waktu % 60);
+        textTimer.text = Menit.ToString("00") + ":" + Detik.ToString("00");
+    }
+    public void correctMove()
+    {
+        correctedRoad += 1;
+
+        Debug.Log("correct Move");
+
+        if (correctedRoad == totalRoad)
+        {
+            Debug.Log("You win!");
+            WinText.SetActive(true);
+            Time.timeScale = 0; 
+            StopAllRotations(); 
         }
     }
-
-    // Panggil metode ini saat pipa terputus.
-    public void PipeDisconnected(Pipe pipe)
+    public void wrongMove()
     {
-        if (connectedPipes.Contains(pipe))
-        {
-            connectedPipes.Remove(pipe);
-        }
+        correctedRoad -= 1;
     }
-
-    // Metode untuk memeriksa apakah pemain memenangkan permainan.
-    private void CheckWinCondition()
+    private void StopAllRotations()
     {
-        // Tambahkan logika di sini untuk memeriksa apakah pemain menang.
-        // Contohnya, jika semua pipa terhubung, maka pemain menang.
-        bool allPipesConnected = connectedPipes.Count == 2;
-
-        if (allPipesConnected)
+        foreach (GameObject road in Road)
         {
-            // Tambahkan tindakan yang perlu diambil saat pemain menang.
-            Debug.Log("Pemain menang!");
+            Road roadScript = road.GetComponent<Road>();
+            if (roadScript != null)
+            {
+                roadScript.PauseRotation();
+            }
         }
     }
 }
