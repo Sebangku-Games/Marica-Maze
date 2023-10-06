@@ -1,0 +1,9 @@
+SCENE1=Scene1
+SCENE2=Scene2
+HELLO=Hello
+LEVEL=Select Level
+BAHASA=Language
+PLAY=Play
+MUSIC=Music
+SOUNDS=Sounds Effect
+SETTINGS=Settings
