@@ -14,6 +14,7 @@ public class Road : MonoBehaviour
     private int rotation;
 
     private bool isRotationPaused = false;
+    
     private SpriteRenderer emptySprite;
     private SpriteRenderer filledSprite;
     private List<Transform> connectBoxes;
@@ -32,7 +33,7 @@ public class Road : MonoBehaviour
         isRotationPaused = false;
     }
     public void Init(int road)
-    {
+    { 
         RoadType = road % 10;
         currentRoad = Instantiate(_roadPrefabs[RoadType], transform);
         currentRoad.transform.localPosition = Vector3.zero;
@@ -70,7 +71,7 @@ public class Road : MonoBehaviour
 
     public void UpdateInput()
     {
-        if (RoadType == 0 || RoadType == 1 || RoadType == 2)
+        if (RoadType == 0 || RoadType == 1 || RoadType == 2 || isRotationPaused)
         {
             return;
         }
