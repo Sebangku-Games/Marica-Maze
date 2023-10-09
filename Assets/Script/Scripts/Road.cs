@@ -13,6 +13,7 @@ public class Road : MonoBehaviour
     private Transform currentRoad;
     private int rotation;
 
+    private bool isRotationPaused = false;
     private SpriteRenderer emptySprite;
     private SpriteRenderer filledSprite;
     private List<Transform> connectBoxes;
@@ -21,6 +22,15 @@ public class Road : MonoBehaviour
     private const int maxRotation = 3;
     private const int rotationMultiplier = 90;
 
+    public void PauseRotation()
+    {
+        isRotationPaused = true;
+    }
+
+    public void ResumeRotation()
+    {
+        isRotationPaused = false;
+    }
     public void Init(int road)
     {
         RoadType = road % 10;
