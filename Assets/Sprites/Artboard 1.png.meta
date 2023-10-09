@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b889014b7c4e8942bbae10ab892a5f8
+guid: a9ce3db34a1cc6b489b78c769cf547dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -132,10 +132,10 @@ TextureImporter:
       name: Artboard 1_0
       rect:
         serializedVersion: 2
-        x: 110
-        y: 115
-        width: 610
-        height: 605
+        x: 112
+        y: 112
+        width: 608
+        height: 608
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a962bc795b41c040af21759b5b88dab
-      internalID: -1459603281
+      spriteID: 3db353798713f6440b4e14d5d16af4f0
+      internalID: 1839274506
       vertices: []
       indices: 
       edges: []
@@ -160,7 +160,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Artboard 1_0: -1459603281
+      Artboard 1_0: 1839274506
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
