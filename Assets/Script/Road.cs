@@ -27,24 +27,25 @@ public class Road : MonoBehaviour
     {
         isRotationPaused = true;
     }
-
     public void ResumeRotation()
     {
         isRotationPaused = false;
     }
-    public void Init(int road)
-    { 
+    public void Init(int road, int initialRotation)
+    {
         RoadType = road % 10;
         currentRoad = Instantiate(_roadPrefabs[RoadType], transform);
         currentRoad.transform.localPosition = Vector3.zero;
+
         if (RoadType == 1 || RoadType == 2)
         {
             rotation = road / 10;
         }
         else
         {
-            rotation = Random.Range(minRotation, maxRotation + 1);
+            rotation = initialRotation; // Gunakan nilai rotasi awal yang diberikan.
         }
+
         currentRoad.transform.eulerAngles = new Vector3(0, 0, rotation * rotationMultiplier);
 
         if (RoadType == 0 || RoadType == 1)
@@ -68,6 +69,7 @@ public class Road : MonoBehaviour
             connectBoxes.Add(currentRoad.GetChild(i));
         }
     }
+
 
     public void UpdateInput()
     {
