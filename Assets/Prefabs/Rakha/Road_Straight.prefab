@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5371135913324137281}
   - component: {fileID: 4147410110768478134}
   - component: {fileID: 7755830090291291432}
+  - component: {fileID: 6374915208513474508}
   m_Layer: 0
   m_Name: End_Point
   m_TagString: EndPoint
@@ -80,6 +81,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.52894044, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6374915208513474508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558164697029537963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a582fb6062ba7f4fb0c14a23bc258ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagObject: StartPoint
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyTrigger: 0
+  boxCollider: {fileID: 0}
+  road: {fileID: 0}
 --- !u!1 &7760758649143203209
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +215,8 @@ MonoBehaviour:
   isStartLine: 0
   isFinishLine: 0
   isFilled: 0
-  isConnected: 0
+  isStartPointConnectedToAnyEndPoint: 0
+  isEndPointConnectedToAnyStartPoint: 0
   startPoint: {fileID: 0}
   endPoint: {fileID: 0}
 --- !u!1 &7760758650196803484
@@ -376,6 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 701018704105484513}
   - component: {fileID: 3899974542782839836}
+  - component: {fileID: 26858814095906219}
   m_Layer: 0
   m_Name: Start_Point
   m_TagString: StartPoint
@@ -424,3 +446,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.52894044, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &26858814095906219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8337123255096967588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a582fb6062ba7f4fb0c14a23bc258ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagObject: EndPoint
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyTrigger: 0
+  boxCollider: {fileID: 0}
+  road: {fileID: 0}

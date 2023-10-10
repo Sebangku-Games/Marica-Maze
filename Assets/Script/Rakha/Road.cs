@@ -13,6 +13,12 @@ public class Road : MonoBehaviour
     [SerializeField] private bool isFinishLine;
     [SerializeField] private bool isFilled;
 
+    public bool isStartPointConnectedToAnyEndPoint;
+    public bool isEndPointConnectedToAnyStartPoint;
+
+    private Road connectedStartPoint;
+    private Road connectedEndPoint;
+
     [SerializeField] private BoxCollider2D startPoint;
     [SerializeField] private BoxCollider2D endPoint;
 
@@ -58,67 +64,52 @@ public class Road : MonoBehaviour
 
     public void UpdateFilled()
     {
-        // Condition 1: StartLine always has isFilled set to true
+        // Check if this Road is connected to both a StartPoint and EndPoint
+        bool isConnected = IsAllSideConnected();
+
+        // Condition 1: StartLine and FinishLine always have isFilled set to true
         if (isStartLine || isFinishLine)
+        {
+            isFilled = true;
+        }
+        // Condition 2: Check if this Road is connected
+        else if (isConnected)
         {
             isFilled = true;
         }
         else
         {
-            // Condition 2: Check if this is connected to a StartLine endPoint
-            if (startPointConnectedToStartLine() || endPointConnectedToFinishLine())
-            {
-                isFilled = true;
-            }
+            isFilled = false;
         }
 
         emptySprite.gameObject.SetActive(!isFilled);
         filledSprite.gameObject.SetActive(isFilled);
     }
 
-    private bool startPointConnectedToStartLine()
-    {
-        // Check if this startPoint is connected to any StartLine endPoint
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(startPoint.bounds.center, startPoint.bounds.size, 0f);
+    // public void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     Debug.Log("OnTriggerEnter2D is called from " + this.gameObject.tag + " to " + other.gameObject.tag);
+    //     Road road = other.GetComponentInParent<Road>();
+    //     if (road != null)
+    //     {
+    //         if (other.CompareTag("EndPoint"))
+    //         {
+    //             // Set the connected EndPoint reference
+    //             connectedEndPoint = road;
+    //             UpdateFilled();
+    //         }
+    //         else if (other.CompareTag("StartPoint"))
+    //         {
+    //             // Set the connected StartPoint reference
+    //             connectedStartPoint = road;
+    //             UpdateFilled();
+    //         }
+    //     }
+    // }
 
-        foreach (Collider2D collider in colliders)
-        {
-            Road road = collider.GetComponent<Road>();
-            if (road != null && road.isStartLine && road.endPointConnectedTo(this.startPoint))
-            {
-                return true;
-            }
-        }
+    
 
-        return false;
-    }
-
-    private bool endPointConnectedToFinishLine()
-    {
-        // Check if this endPoint is connected to any FinishLine startPoint
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(endPoint.bounds.center, endPoint.bounds.size, 0f);
-
-        foreach (Collider2D collider in colliders)
-        {
-            Road road = collider.GetComponent<Road>();
-            if (road != null && road.isFinishLine && road.startPointConnectedTo(this.endPoint))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private bool startPointConnectedTo(BoxCollider2D otherStartPoint)
-    {
-        // Check if this startPoint is connected to the provided startPoint
-        return Physics2D.OverlapBox(startPoint.bounds.center, startPoint.bounds.size, 0f) == otherStartPoint;
-    }
-
-    private bool endPointConnectedTo(BoxCollider2D otherEndPoint)
-    {
-        // Check if this endPoint is connected to the provided endPoint
-        return Physics2D.OverlapBox(endPoint.bounds.center, endPoint.bounds.size, 0f) == otherEndPoint;
+    private bool IsAllSideConnected(){
+        return isStartPointConnectedToAnyEndPoint && isEndPointConnectedToAnyStartPoint;
     }
 }
