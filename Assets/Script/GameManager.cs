@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     public GameObject WinText;
     public GameObject LoseText;
 
+    public GameObject starend1;
+    public GameObject starend2;
+    public GameObject starend3;
+
     private void Awake()
     {
         Instance = this;
@@ -222,7 +226,41 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         WinText.SetActive(true);
+        DetermineStars();
         Time.timeScale = 0;
+    }
+
+    private void DetermineStars()
+    {
+        int starsEarned = 0;
+
+        // Periksa waktu yang tersisa dan tentukan berapa bintang yang diperoleh.
+        if (Waktu >= 25)
+        {
+            starsEarned = 3;
+        }
+        else if (Waktu >= 15)
+        {
+            starsEarned = 2;
+        }
+        else if (Waktu >= 5)
+        {
+            starsEarned = 1;
+        }
+
+        // Aktifkan GameObject bintang sesuai dengan jumlah bintang yang diperoleh.
+        if (starsEarned >= 1)
+        {
+            starend1.SetActive(true);
+        }
+        if (starsEarned >= 2)
+        {
+            starend2.SetActive(true);
+        }
+        if (starsEarned >= 3)
+        {
+            starend3.SetActive(true);
+        }
     }
 
 
