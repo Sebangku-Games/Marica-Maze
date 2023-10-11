@@ -1036,12 +1036,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 519420033}
         m_TargetAssemblyTypeName: loadsistem, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
+        m_MethodName: resumegame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2244,7 +2244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e266dd194ef07e74fb5fa3c5df471243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: {fileID: 11400000, guid: d212bd3e908380c48a5da6eee5df9d54, type: 2}
+  _level: {fileID: 11400000, guid: 40fc189c6b7b2944cacc23d7b18ba882, type: 2}
   _cellPrefab: {fileID: 2317155852989066130, guid: 101eeee7cc639d54b843ea14f7a37df3, type: 3}
   textTimer: {fileID: 390732413}
   Waktu: 30
@@ -3349,7 +3349,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 2
+  m_Text: Level 5
 --- !u!222 &1560692431
 CanvasRenderer:
   m_ObjectHideFlags: 0

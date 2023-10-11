@@ -29,10 +29,10 @@ public class loadsistem : MonoBehaviour
         Pause.SetActive(true);
 
         // Tambahan: Jika ingin menghentikan rotasi pada objek Road
-        //Road[] roads = FindObjectsOfType<Road>();
-       // foreach (Road road in roads)
+        Road[] roads = FindObjectsOfType<Road>();
+        foreach (Road road in roads)
         {
-            //road.PauseRotation();
+            road.PauseRotation();
         }
     }
 
@@ -43,10 +43,10 @@ public class loadsistem : MonoBehaviour
         Pause.SetActive(false);
 
         // Tambahan: Jika ingin melanjutkan rotasi pada objek Road
-       // Road[] roads = FindObjectsOfType<Road>();
-        //foreach (Road road in roads)
+        Road[] roads = FindObjectsOfType<Road>();
+        foreach (Road road in roads)
         {
-          //  road.ResumeRotation();
+          road.ResumeRotation();
         }
     }
 }

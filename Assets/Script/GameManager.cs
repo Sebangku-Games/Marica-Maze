@@ -48,14 +48,25 @@ public class GameManager : MonoBehaviour
                 // Hitung posisi sel pipa agar berada di tengah
                 Vector2 spawnPos = new Vector2(j - xOffset + 0.5f, i - yOffset + 0.5f);
                 Road tempRoad = Instantiate(_cellPrefab, spawnPos, Quaternion.identity);
-                tempRoad.Init(_level.Data[i * _level.Column + j]);
+
+                // Dapatkan data dari List<int> Data
+                int data = _level.Data[i * _level.Column + j];
+
+                // Dapatkan tipe sel dan rotasi
+                int type = data % 10; // Digit satuan adalah tipe sel.
+                int rotation = data / 10; // Digit puluhan adalah rotasi.
+
+                // Inisialisasi sel dengan tipe sel dan rotasi
+                tempRoad.Init(type, rotation);
+
                 roads[i, j] = tempRoad;
-                if (tempRoad.RoadType == 1)
+                if (type == 1)
                 {
                     startRoads.Add(tempRoad);
                 }
             }
         }
+
 
         StartCoroutine(ShowHint());
     }
@@ -89,19 +100,19 @@ public class GameManager : MonoBehaviour
             GameAktif = false;
         }
 
-        if (GameAktif && Waktu <= 40)
+        if (GameAktif && Waktu <= 25)
         {
             Debug.Log("bintang ke 3 hilang");
             Star3.SetActive(false);
 
         }
-        if (GameAktif && Waktu <= 20)
+        if (GameAktif && Waktu <= 15)
         {
             Debug.Log("bintang ke 2 hilang");
             Star2.SetActive(false);
 
         }
-        if (GameAktif && Waktu <= 10)
+        if (GameAktif && Waktu <= 5)
         {
             Debug.Log("bintang ke 1 hilang");
             Star1.SetActive(false);
