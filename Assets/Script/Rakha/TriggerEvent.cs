@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class TriggerEvent : MonoBehaviour
 {
     [Header("Main Settings")]
-    public string tagObject;
     public UnityEvent triggerEvent;
     public bool destroyTrigger;
 
