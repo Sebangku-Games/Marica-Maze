@@ -4,72 +4,104 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
-    float[] rotations = { 0, 90, 180, 270 };
 
-    public float[] correctRotation;
-    [SerializeField]
-    bool isPlaced = false;
+    [HideInInspector] public bool IsFilled;
+    [HideInInspector] public int RoadType;
 
-    int PossibleRots = 1;
+    [SerializeField] private Transform[] _roadPrefabs;
 
-    GameManager gameManager;
+    private Transform currentRoad;
+    private int rotation;
 
-    private void Awake()
+    private bool isRotationPaused = false;
+    
+    private SpriteRenderer emptySprite;
+    private SpriteRenderer filledSprite;
+    private List<Transform> connectBoxes;
+
+    private const int minRotation = 0;
+    private const int maxRotation = 3;
+    private const int rotationMultiplier = 90;
+
+    public void PauseRotation()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        isRotationPaused = true;
     }
-    private void Start()
+    public void ResumeRotation()
     {
-        PossibleRots = correctRotation.Length;
-        int rand = Random.Range(0, rotations.Length);
-        transform.eulerAngles = new Vector3(0, 0, rotations[rand]);
+        isRotationPaused = false;
+    }
+    public void Init(int road, int initialRotation)
+    {
+        RoadType = road % 10;
+        currentRoad = Instantiate(_roadPrefabs[RoadType], transform);
+        currentRoad.transform.localPosition = Vector3.zero;
 
-        if (PossibleRots > 1)
+        if (RoadType == 1 || RoadType == 2)
         {
-            if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1])
-            {
-                isPlaced = true;
-                gameManager.correctMove();
-            }
+            rotation = road / 10;
         }
         else
         {
-            if (transform.eulerAngles.z == correctRotation[0])
-            {
-                isPlaced = true;
-                gameManager.correctMove();
-            }
+            rotation = initialRotation; // Gunakan nilai rotasi awal yang diberikan.
+        }
+
+        currentRoad.transform.eulerAngles = new Vector3(0, 0, rotation * rotationMultiplier);
+
+        if (RoadType == 0 || RoadType == 1)
+        {
+            IsFilled = true;
+        }
+
+        if (RoadType == 0)
+        {
+            return;
+        }
+
+        emptySprite = currentRoad.GetChild(0).GetComponent<SpriteRenderer>();
+        emptySprite.gameObject.SetActive(!IsFilled);
+        filledSprite = currentRoad.GetChild(1).GetComponent<SpriteRenderer>();
+        filledSprite.gameObject.SetActive(IsFilled);
+
+        connectBoxes = new List<Transform>();
+        for (int i = 2; i < currentRoad.childCount; i++)
+        {
+            connectBoxes.Add(currentRoad.GetChild(i));
         }
     }
-    private void OnMouseDown()
-    {
-        transform.Rotate(new Vector3(0, 0, 90));
 
-        if (PossibleRots > 1)
+
+    public void UpdateInput()
+    {
+        if (RoadType == 0 || RoadType == 1 || RoadType == 2 || isRotationPaused)
         {
-            if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1] && isPlaced == false)
+            return;
+        }
+
+        rotation = (rotation + 1) % (maxRotation + 1);
+        currentRoad.transform.eulerAngles = new Vector3(0, 0, rotation * rotationMultiplier);
+    }
+
+    public void UpdateFilled()
+    {
+        if (RoadType == 0) return;
+        emptySprite.gameObject.SetActive(!IsFilled);
+        filledSprite.gameObject.SetActive(IsFilled);
+    }
+
+    public List<Road> ConnectedRoads()
+    {
+        List<Road> result = new List<Road>();
+
+        foreach (var box in connectBoxes)
+        {
+            RaycastHit2D[] hit = Physics2D.RaycastAll(box.transform.position, Vector2.zero, 0.1f);
+            for (int i = 0; i < hit.Length; i++)
             {
-                isPlaced = true;
-                gameManager.correctMove();
-            }
-            else if (isPlaced == true)
-            {
-                isPlaced = false;
-                gameManager.wrongMove();
+                result.Add(hit[i].collider.transform.parent.parent.GetComponent<Road>());
             }
         }
-        else
-        {
-            if (transform.eulerAngles.z == correctRotation[0] && isPlaced == false)
-            {
-                isPlaced = true;
-                gameManager.correctMove();
-            }
-            else if (isPlaced == true)
-            {
-                isPlaced = false;
-                gameManager.wrongMove();
-            }
-        }
+
+        return result;
     }
 }
