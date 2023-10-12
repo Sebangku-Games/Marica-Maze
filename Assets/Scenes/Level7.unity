@@ -578,7 +578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &139028063
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2254,6 +2254,9 @@ MonoBehaviour:
   Star3: {fileID: 2134798026}
   WinText: {fileID: 124722927}
   LoseText: {fileID: 1339842069}
+  starend1: {fileID: 1635721855}
+  starend2: {fileID: 1340394523}
+  starend3: {fileID: 139028062}
 --- !u!1 &1044511779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,7 +3000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1340394524
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3375,7 +3378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1635721856
 RectTransform:
   m_ObjectHideFlags: 0
