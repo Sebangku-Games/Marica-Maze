@@ -99,26 +99,22 @@ public class GameManager : MonoBehaviour
 
         if (GameAktif && Waktu <= 0)
         {
-            Debug.Log("Lose");
             LoseText.SetActive(true);
             GameAktif = false;
         }
 
         if (GameAktif && Waktu <= 25)
         {
-            Debug.Log("bintang ke 3 hilang");
             Star3.SetActive(false);
 
         }
         if (GameAktif && Waktu <= 15)
         {
-            Debug.Log("bintang ke 2 hilang");
             Star2.SetActive(false);
 
         }
         if (GameAktif && Waktu <= 5)
         {
-            Debug.Log("bintang ke 1 hilang");
             Star1.SetActive(false);
 
         }
@@ -261,6 +257,10 @@ public class GameManager : MonoBehaviour
         {
             starend3.SetActive(true);
         }
+
+        ScoreManager.Instance.SetStarsScorePerLevel(starsEarned);
+
+        Debug.Log("Total stars earned: " + ScoreManager.Instance.GetTotalScore());
     }
 
 
