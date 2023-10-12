@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class DragDrop : MonoBehaviour
 {
     public List<GameObject> correctForms; // Menggunakan List<GameObject> untuk menyimpan lebih dari satu objek yang benar
+
+    public LevelSpawner levelSpawner;
     private bool isDragging;
     private Vector3 startPosition;
     private Vector3 resetPosition;
@@ -12,6 +15,14 @@ public class DragDrop : MonoBehaviour
     void Start()
     {
         resetPosition = transform.localPosition;
+
+        levelSpawner = GameObject.Find("Level Spawner").GetComponent<LevelSpawner>();
+
+        // Menginisialisasi correctForms
+        correctForms = new List<GameObject>
+        {
+            levelSpawner.transform.GetChild(0).gameObject
+        };
     }
 
     void Update()
