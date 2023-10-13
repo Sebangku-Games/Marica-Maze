@@ -149,6 +149,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         CheckFill();
         CheckWin();
+        CheckLose();
     }
     private void CheckFill()
     {
@@ -217,12 +218,34 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GameFinished());
     }
 
+    private void CheckLose ()
+    {
+        // Memeriksa apakah sel pipa tipe 9 telah terisi.
+        foreach (var road in roads)
+        {
+            if (road.RoadType == 9 && !road.IsFilled)
+            {
+                return;
+            }
+        }
+
+        //Jika cell trap terisi maka akan lose
+        GameAktif = false;
+        StartCoroutine(GameLosed());
+    }
+
 
     private IEnumerator GameFinished()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         WinText.SetActive(true);
         DetermineStars();
+        Time.timeScale = 0;
+    }
+    private IEnumerator GameLosed()
+    {
+        yield return new WaitForSeconds(1f);
+        LoseText.SetActive(true);
         Time.timeScale = 0;
     }
 
