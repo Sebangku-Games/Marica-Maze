@@ -4,10 +4,13 @@ using UnityEngine;
 using TMPro;
 using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public Dictionary<string, int> levelNameToIndex = new Dictionary<string, int>();
+
 
     [SerializeField] private LevelData[] levels; // An array of LevelData.
     [SerializeField] private Road _cellPrefab;
@@ -21,6 +24,7 @@ public class GameManager : MonoBehaviour
     public float Waktu = 100;
     private float s;
     public bool GameAktif = true;
+    public Text levelText;
 
     public GameObject Star1;
     public GameObject Star2;
@@ -43,8 +47,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
         // get the current level from game data
         currentLevelIndex = GameData.InstanceData.currentLevel;
+
+        // Set the levelText to display the current level index.
+        if (levelText != null)
+        {
+            levelText.text = "Level " + currentLevelIndex.ToString();
+        }
+
         // Load the initial level.
         LoadLevel(currentLevelIndex);
     }
