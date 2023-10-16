@@ -1,9 +1,0 @@
-SCENE1=bagian1
-SCENE2=bagian1
-HELLO=Halo
-LEVEL=Pilih Level
-BAHASA=Bahasa
-PLAY=Mulai
-MUSIC=Musik
-SOUNDS=Efek Suara
-SETTINGS=Pengaturan

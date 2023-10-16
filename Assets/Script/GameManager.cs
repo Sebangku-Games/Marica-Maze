@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int currentLevelIndex = 0; // Keep track of the current level.
 
     public TextMeshProUGUI textTimer;
-    public float Waktu = 100;
+    public float Waktu;
     private float s;
     public bool GameAktif = true;
     public Text levelText;
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
 
         // Load the initial level.
         LoadLevel(currentLevelIndex);
+        Waktu = _level.waktu;
     }
 
     private void LoadLevel(int levelIndex)

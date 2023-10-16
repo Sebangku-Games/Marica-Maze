@@ -7,4 +7,5 @@ public class LevelData : ScriptableObject
     public int Row;
     public int Column;
     public List<int> Data;
+    public int waktu;
 }

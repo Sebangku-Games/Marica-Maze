@@ -2268,7 +2268,7 @@ MonoBehaviour:
   _cellPrefab: {fileID: 2317155852989066130, guid: 101eeee7cc639d54b843ea14f7a37df3, type: 3}
   currentLevelIndex: 0
   textTimer: {fileID: 390732413}
-  Waktu: 30
+  Waktu: 0
   GameAktif: 1
   levelText: {fileID: 1560692430}
   Star1: {fileID: 1943634506}
