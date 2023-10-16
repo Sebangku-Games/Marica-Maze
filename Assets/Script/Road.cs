@@ -37,7 +37,7 @@ public class Road : MonoBehaviour
         currentRoad = Instantiate(_roadPrefabs[RoadType], transform);
         currentRoad.transform.localPosition = Vector3.zero;
 
-        if (RoadType == 1 || RoadType == 2)
+        if (RoadType == 1 || RoadType == 2 || RoadType == 9)
         {
             rotation = road / 10;
         }

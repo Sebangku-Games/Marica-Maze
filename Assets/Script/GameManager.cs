@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] private LevelData _level;
+    [SerializeField] private LevelData[] levels; // An array of LevelData.
     [SerializeField] private Road _cellPrefab;
 
     private bool hasGameFinished;
     private Road[,] roads;
     private List<Road> startRoads;
+    [SerializeField] private int currentLevelIndex = 0; // Keep track of the current level.
 
-    public TextMeshProUGUI textTimer; // Tambahkan komponen TextMeshProUGUI untuk menampilkan timer.
-    public float Waktu = 100; // Tambahkan variabel timer dan atur nilai awal sesuai kebutuhan.
+    public TextMeshProUGUI textTimer;
+    public float Waktu = 100;
     private float s;
     public bool GameAktif = true;
 
@@ -30,31 +33,67 @@ public class GameManager : MonoBehaviour
     public GameObject starend2;
     public GameObject starend3;
 
+    [SerializeField] private LevelData _level; // Store the current level data.
+
     private void Awake()
     {
         Instance = this;
         hasGameFinished = false;
-        SpawnLevel();
     }
 
-    private void SpawnLevel()
+    private void Start()
     {
-        roads = new Road[_level.Row, _level.Column];
+        // get the current level from game data
+        currentLevelIndex = GameData.InstanceData.currentLevel;
+        // Load the initial level.
+        LoadLevel(currentLevelIndex);
+    }
+
+    private void LoadLevel(int levelIndex)
+    {
+        WinText.SetActive(false);
+
+        if (levelIndex < 0 || levelIndex >= levels.Length)
+        {
+            Debug.LogError("Invalid level index.");
+            return;
+        }
+
+        _level = levels[levelIndex]; // Update the current level data.
+        SpawnLevel(_level);
+    }
+
+    private void DestroyLevel(int levelIndex)
+    {
+        if (roads == null) return;
+
+        for (int i = 0; i < levels[levelIndex].Row; i++)
+        {
+            for (int j = 0; j < levels[levelIndex].Column; j++)
+            {
+                Destroy(roads[i, j].gameObject);
+            }
+        }
+    }
+
+    private void SpawnLevel(LevelData levelData)
+    {
+        roads = new Road[levelData.Row, levelData.Column];
         startRoads = new List<Road>();
 
-        float xOffset = _level.Column / 2.0f;
-        float yOffset = _level.Row / 2.0f;
+        float xOffset = levelData.Column / 2.0f;
+        float yOffset = levelData.Row / 2.0f;
 
-        for (int i = 0; i < _level.Row; i++)
+        for (int i = 0; i < levelData.Row; i++)
         {
-            for (int j = 0; j < _level.Column; j++)
+            for (int j = 0; j < levelData.Column; j++)
             {
                 // Hitung posisi sel pipa agar berada di tengah
                 Vector2 spawnPos = new Vector2(j - xOffset + 0.5f, i - yOffset + 0.5f);
                 Road tempRoad = Instantiate(_cellPrefab, spawnPos, Quaternion.identity);
 
                 // Dapatkan data dari List<int> Data
-                int data = _level.Data[i * _level.Column + j];
+                int data = levelData.Data[i * levelData.Column + j];
 
                 // Dapatkan tipe sel dan rotasi
                 int type = data % 10; // Digit satuan adalah tipe sel.
@@ -70,7 +109,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
 
         StartCoroutine(ShowHint());
     }
@@ -106,22 +144,19 @@ public class GameManager : MonoBehaviour
         if (GameAktif && Waktu <= 25)
         {
             Star3.SetActive(false);
-
         }
         if (GameAktif && Waktu <= 15)
         {
             Star2.SetActive(false);
-
         }
         if (GameAktif && Waktu <= 5)
         {
             Star1.SetActive(false);
-
         }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float xOffset = _level.Column / 2.0f;
-        float yOffset = _level.Row / 2.0f;
+        float xOffset = levels[currentLevelIndex].Column / 2.0f;
+        float yOffset = levels[currentLevelIndex].Row / 2.0f;
 
         // Menggeser posisi mouse sesuai dengan offset
         float adjustedMouseX = mousePos.x + xOffset;
@@ -131,8 +166,8 @@ public class GameManager : MonoBehaviour
         int col = Mathf.FloorToInt(adjustedMouseX);
 
         if (row < 0 || col < 0) return;
-        if (row >= _level.Row) return;
-        if (col >= _level.Column) return;
+        if (row >= levels[currentLevelIndex].Row) return;
+        if (col >= levels[currentLevelIndex].Column) return;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -141,21 +176,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-
-
     private IEnumerator ShowHint()
     {
         yield return new WaitForSeconds(0.1f);
         CheckFill();
         CheckWin();
-        CheckLose();
     }
+
     private void CheckFill()
     {
-        for (int i = 0; i < _level.Row; i++)
+        for (int i = 0; i < levels[currentLevelIndex].Row; i++)
         {
-            for (int j = 0; j < _level.Column; j++)
+            for (int j = 0; j < levels[currentLevelIndex].Column; j++)
             {
                 Road tempRoad = roads[i, j];
                 if (tempRoad.RoadType != 0)
@@ -191,16 +223,16 @@ public class GameManager : MonoBehaviour
             filled.IsFilled = true;
         }
 
-        for (int i = 0; i < _level.Row; i++)
+        for (int i = 0; i < levels[currentLevelIndex].Row; i++)
         {
-            for (int j = 0; j < _level.Column; j++)
+            for (int j = 0; j < levels[currentLevelIndex].Column; j++)
             {
                 Road tempRoad = roads[i, j];
                 tempRoad.UpdateFilled();
             }
         }
-
     }
+
 
     private void CheckWin()
     {
@@ -218,34 +250,12 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GameFinished());
     }
 
-    private void CheckLose ()
-    {
-        // Memeriksa apakah sel pipa tipe 9 telah terisi.
-        foreach (var road in roads)
-        {
-            if (road.RoadType == 9 && !road.IsFilled)
-            {
-                return;
-            }
-        }
-
-        //Jika cell trap terisi maka akan lose
-        GameAktif = false;
-        StartCoroutine(GameLosed());
-    }
-
 
     private IEnumerator GameFinished()
     {
         yield return new WaitForSeconds(1f);
         WinText.SetActive(true);
         DetermineStars();
-        Time.timeScale = 0;
-    }
-    private IEnumerator GameLosed()
-    {
-        yield return new WaitForSeconds(1f);
-        LoseText.SetActive(true);
         Time.timeScale = 0;
     }
 
@@ -284,6 +294,19 @@ public class GameManager : MonoBehaviour
         ScoreManager.Instance.SetStarsScorePerLevel(starsEarned);
 
         Debug.Log("Total stars earned: " + ScoreManager.Instance.GetTotalScore());
+    }
+
+    public void NextLevel(){
+        if (currentLevelIndex >= levels.Length - 1)
+        {
+            Debug.Log("No more levels!");
+            return;
+        }
+        
+        // Reload scene but load the next level
+        GameData.InstanceData.currentLevel++;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 
 
