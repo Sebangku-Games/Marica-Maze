@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private LevelData _level; // Store the current level data.
 
+
+
     private void Awake()
     {
         Instance = this;
@@ -47,15 +49,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
 
         // get the current level from game data
         currentLevelIndex = GameData.InstanceData.currentLevel;
 
-        // Set the levelText to display the current level index.
-        if (levelText != null)
-        {
-            levelText.text = "Level " + currentLevelIndex.ToString();
-        }
 
         // Load the initial level.
         LoadLevel(currentLevelIndex);
@@ -66,10 +64,18 @@ public class GameManager : MonoBehaviour
     {
         WinText.SetActive(false);
 
+        int currLevel = currentLevelIndex + 1;
+
         if (levelIndex < 0 || levelIndex >= levels.Length)
         {
             Debug.LogError("Invalid level index.");
             return;
+        }
+
+        // Set the levelText to display the current level index.
+        if (levelText != null)
+        {
+            levelText.text = "Level " + currLevel.ToString();
         }
 
         _level = levels[levelIndex]; // Update the current level data.
