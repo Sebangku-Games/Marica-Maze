@@ -280,17 +280,25 @@ public class GameManager : MonoBehaviour
     }
     private void CheckLose()
     {
-        
+        bool roadType9 = false;
         foreach (var road in roads)
         {
-            if (road.RoadType == 9 && !road.IsFilled)
+            if (road.RoadType == 9)
             {
-                return; 
+                roadType9 = true;
+                if (!road.IsFilled)
+                {
+                    return;
+                }
             }
         }
+        if (!roadType9)
+        {
+            return;
+        }
         Debug.Log("game kalah");
-        //GameAktif = false;
-        //StartCoroutine(GameLose());
+        GameAktif = false;
+        StartCoroutine(GameLose());
     }
 
 
