@@ -200,6 +200,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         CheckFill();
         CheckWin();
+        CheckLose();
     }
 
     private void CheckFill()
@@ -275,6 +276,28 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         WinText.SetActive(true);
         DetermineStars();
+        Time.timeScale = 0;
+    }
+    private void CheckLose()
+    {
+        
+        foreach (var road in roads)
+        {
+            if (road.RoadType == 9 && !road.IsFilled)
+            {
+                return; 
+            }
+        }
+        Debug.Log("game kalah");
+        //GameAktif = false;
+        //StartCoroutine(GameLose());
+    }
+
+
+    private IEnumerator GameLose()
+    {
+        yield return new WaitForSeconds(1f);
+        LoseText.SetActive(true);
         Time.timeScale = 0;
     }
 
