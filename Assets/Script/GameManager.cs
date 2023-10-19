@@ -350,6 +350,7 @@ public class GameManager : MonoBehaviour
         if (currentLevelIndex >= levels.Length - 1)
         {
             Debug.Log("No more levels!");
+            SceneManager.LoadScene("ChooseLevel");
             return;
         }
         
