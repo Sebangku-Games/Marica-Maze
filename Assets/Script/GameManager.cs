@@ -346,18 +346,19 @@ public class GameManager : MonoBehaviour
         Debug.Log("Total stars earned: " + ScoreManager.Instance.GetTotalScore());
     }
 
-    public void NextLevel(){
-        if (currentLevelIndex >= levels.Length - 1)
-        {
-            Debug.Log("No more levels!");
-            return;
-        }
+    // public void NextLevel(){
+    //     if (currentLevelIndex >= levels.Length - 1)
+    //     {
+    //         Debug.Log("No more levels!");
+    //         SceneManager.LoadScene("ChooseLevel");
+    //         return;
+    //     }
         
-        // Reload scene but load the next level
-        GameData.InstanceData.currentLevel++;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
-    }
+    //     // Reload scene but load the next level
+    //     GameData.InstanceData.currentLevel++;
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //     Time.timeScale = 1;
+    // }
 
 
 }
