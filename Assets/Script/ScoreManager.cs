@@ -19,31 +19,29 @@ public class ScoreManager : MonoBehaviour
     public void SetStarsScorePerLevel(int stars)
     {
         // Get current level based on scene
-        string currentLevel = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-
-        // Extract the level number from the scene name (assuming the scene names are like "LevelX")
-        int levelNumber;
-        if (int.TryParse(currentLevel.Replace("Level", ""), out levelNumber) && levelNumber >= 1 && levelNumber <= 20)
+        int currentLevel = GameData.InstanceData.currentLevel + 1;
+        
+        if (currentLevel >= 1 && currentLevel <= 20)
         {
             // Check if the levelkey exist in playerprefs
-            if (PlayerPrefs.HasKey(currentLevel))
+            if (PlayerPrefs.HasKey(currentLevel.ToString()))
             {
                 // If exist, check if the current score is higher than the previous score
-                if (PlayerPrefs.GetInt(currentLevel) < stars)
+                if (PlayerPrefs.GetInt(currentLevel.ToString()) < stars)
                 {
                     // If higher, save the new score
-                    PlayerPrefs.SetInt(currentLevel, stars);
-                    AddScoreToTotalScore(stars - PlayerPrefs.GetInt(currentLevel));
+                    PlayerPrefs.SetInt(currentLevel.ToString(), stars);
+                    AddScoreToTotalScore(stars - PlayerPrefs.GetInt(currentLevel.ToString()));
                 }
             }
             else
             {
                 // If not exist, save the new score
-                PlayerPrefs.SetInt(currentLevel, stars);
+                PlayerPrefs.SetInt(currentLevel.ToString(), stars);
                 AddScoreToTotalScore(stars);
             }
         }
-        Debug.Log("stars earned on this level: " + stars);
+        Debug.Log("Stars earned on level" + currentLevel + ": " + PlayerPrefs.GetInt(currentLevel.ToString()));
     }
 
 
@@ -54,5 +52,9 @@ public class ScoreManager : MonoBehaviour
 
     public int GetTotalScore(){
         return PlayerPrefs.GetInt("TotalScore");
+    }
+
+    public void DeletePlayerPrefs(){
+        PlayerPrefs.DeleteAll();
     }
 }
