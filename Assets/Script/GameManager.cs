@@ -44,15 +44,15 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         hasGameFinished = false;
+        
     }
 
     private void Start()
     {
-        
-
         // get the current level from game data
         currentLevelIndex = GameData.InstanceData.currentLevel;
         // Load the initial level.
+        FindObjectOfType<Anim>().SetPosition();
         LoadLevel(currentLevelIndex);
         Waktu = _level.waktu;
     }
@@ -263,6 +263,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Jika semua sel pipa tipe 2 terisi, maka permainan selesai.
+        FindObjectOfType<Anim>().PlayAnim();
         hasGameFinished = true;
         StartCoroutine(GameFinished());
     }
