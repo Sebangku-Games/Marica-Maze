@@ -4513,7 +4513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Time Out
+  m_text: You Lose
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}
   m_sharedMaterial: {fileID: 18355528546518325, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}

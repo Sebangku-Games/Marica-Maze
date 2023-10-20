@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -53,8 +52,6 @@ public class GameManager : MonoBehaviour
 
         // get the current level from game data
         currentLevelIndex = GameData.InstanceData.currentLevel;
-
-
         // Load the initial level.
         LoadLevel(currentLevelIndex);
         Waktu = _level.waktu;
