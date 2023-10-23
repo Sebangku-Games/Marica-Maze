@@ -271,7 +271,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameFinished()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         WinText.SetActive(true);
         DetermineStars();
         Time.timeScale = 0;
@@ -302,7 +302,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameLose()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         LoseText.SetActive(true);
         Time.timeScale = 0;
     }

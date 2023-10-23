@@ -34,6 +34,21 @@ public class Anim : MonoBehaviour
             case 4:
                 transform.parent.position = new Vector3(1, -1, 0);
                 break;
+            case 5:
+                transform.parent.position = new Vector3(-1, -1, 0);
+                break;
+            case 6:
+                transform.parent.position = new Vector3(1f, -0.5f, 0f);
+                break;
+            case 7:
+                transform.parent.position = new Vector3(-1f, -1.5f, 0f);
+                break;
+            case 8:
+                transform.parent.position = new Vector3(1f, -1.5f, 0f);
+                break;
+            case 9:
+                transform.parent.position = new Vector3(0f, -1.5f, 0f);
+                break;
         }
     }
 
@@ -43,7 +58,6 @@ public class Anim : MonoBehaviour
         {
             case 0:
                 animator.SetTrigger("tgrFinish1");
-                Debug.Log("f1");
                 break;
             case 1:
                 animator.SetTrigger("tgrFinish2");
@@ -57,7 +71,22 @@ public class Anim : MonoBehaviour
             case 4:
                 animator.SetTrigger("tgrFinish5");
                 break;
-          
+            case 5:
+                animator.SetTrigger("tgrFinish6");
+                break;
+            case 6:
+                animator.SetTrigger("tgrFinish7");
+                break;
+            case 7:
+                animator.SetTrigger("tgrFinish8");
+                break;
+            case 8:
+                animator.SetTrigger("tgrFinish9");
+                break;
+            case 9:
+                animator.SetTrigger("tgrFinish10");
+                break;
+
 
         }
     }
