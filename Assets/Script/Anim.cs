@@ -17,7 +17,8 @@ public class Anim : MonoBehaviour
         switch (GameData.InstanceData.currentLevel)
         {
             case 0:
-                this.gameObject.transform.position = new Vector3(1f, -1f, 0f);
+                // set this gameobject position to 0,0,0
+                transform.parent.position = new Vector3(1, -1, 0);
                 Debug.Log("set0");
                 break;
             case 1:
