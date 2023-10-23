@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         // get the current level from game data
         currentLevelIndex = GameData.InstanceData.currentLevel;
         // Load the initial level.
-        FindObjectOfType<Anim>().SetPosition();
+        //FindObjectOfType<Anim>().SetPosition();
         LoadLevel(currentLevelIndex);
         Waktu = _level.waktu;
     }

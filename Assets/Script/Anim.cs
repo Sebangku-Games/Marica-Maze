@@ -9,7 +9,7 @@ public class Anim : MonoBehaviour
     private void Start()
     {
         animator = GetComponent < Animator>();
-        SetPosition(); // Panggil SetPosition saat objek pertama kali dimulai.
+        SetPosition(); 
     }
 
     public void SetPosition()
@@ -22,15 +22,17 @@ public class Anim : MonoBehaviour
                 Debug.Log("set0");
                 break;
             case 1:
+                transform.parent.position = new Vector3(-1, 1, 0);
                 Debug.Log("Set1");
                 break;
             case 2:
-                Debug.Log("Set2");
+                transform.parent.position = new Vector3(-1, -1, 0);
                 break;
             case 3:
-                Debug.Log("Set3");
+                transform.parent.position = new Vector3(-1, -1, 0);
                 break;
-            default:
+            case 4:
+                transform.parent.position = new Vector3(1, -1, 0);
                 break;
         }
     }
@@ -46,6 +48,17 @@ public class Anim : MonoBehaviour
             case 1:
                 animator.SetTrigger("tgrFinish2");
                 break;
+            case 2:
+                animator.SetTrigger("tgrFinish3");
+                break;
+            case 3:
+                animator.SetTrigger("tgrFinish4");
+                break;
+            case 4:
+                animator.SetTrigger("tgrFinish5");
+                break;
+          
+
         }
     }
 
