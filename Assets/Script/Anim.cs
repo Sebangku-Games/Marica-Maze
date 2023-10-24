@@ -61,7 +61,19 @@ public class Anim : MonoBehaviour
             case 13:
                 transform.parent.position = new Vector3(1.5f, -1.5f, 0f);
                 break;
-            case 14:
+            case 15:
+                transform.parent.position = new Vector3(-1.5f, -1f, 0f);
+                break;
+            case 16:
+                transform.parent.position = new Vector3(1.5f, 2f, 0f);
+                break;
+            case 17:
+                transform.parent.position = new Vector3(1.5f, 2f, 0f);
+                break;
+            case 18:
+                transform.parent.position = new Vector3(1.5f, 2f, 0f);
+                break;
+            case 19:
                 transform.parent.position = new Vector3(1.5f, 2f, 0f);
                 break;
         }
