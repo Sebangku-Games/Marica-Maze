@@ -8,4 +8,6 @@ public class LevelData : ScriptableObject
     public int Column;
     public List<int> Data;
     public int waktu;
+    public float timerToGetStar;
+    public int amountClickToGetStar;
 }

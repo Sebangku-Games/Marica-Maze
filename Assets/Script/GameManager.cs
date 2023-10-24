@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private LevelData _level; // Store the current level data.
 
+    [SerializeField] private int amountClicked = 0;
+    private bool clicksConditionMet = false;
+    private bool timeConditionMet = false;
+
 
 
     private void Awake()
@@ -55,6 +59,8 @@ public class GameManager : MonoBehaviour
         //FindObjectOfType<Anim>().SetPosition();
         LoadLevel(currentLevelIndex);
         Waktu = _level.waktu;
+
+        amountClicked = 0;
     }
 
     private void LoadLevel(int levelIndex)
@@ -157,17 +163,19 @@ public class GameManager : MonoBehaviour
             GameAktif = false;
         }
 
-        if (GameAktif && Waktu <= 25)
+        if (GameAktif)
         {
-            Star3.SetActive(false);
-        }
-        if (GameAktif && Waktu <= 15)
-        {
-            Star2.SetActive(false);
-        }
-        if (GameAktif && Waktu <= 5)
-        {
-            Star1.SetActive(false);
+            if (!clicksConditionMet && !IsClearedWithXAmountClicks())
+            {
+                Deactivate1Star();
+                clicksConditionMet = true;
+            }
+
+            if (!timeConditionMet && !IsClearedWithXAmountTime())
+            {
+                Deactivate1Star();
+                timeConditionMet = true;
+            }
         }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -189,6 +197,24 @@ public class GameManager : MonoBehaviour
         {
             roads[row, col].UpdateInput();
             StartCoroutine(ShowHint());
+            amountClicked++;
+        }
+    }
+
+    private void Deactivate1Star()
+    {
+        // Deactivate stars in reverse order, starting from Star3 down to Star1
+        if (Star3.activeSelf)
+        {
+            Star3.SetActive(false);
+        }
+        else if (Star2.activeSelf)
+        {
+            Star2.SetActive(false);
+        }
+        else if (Star1.activeSelf)
+        {
+            Star1.SetActive(false);
         }
     }
 
@@ -308,20 +334,58 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    private bool IsClearedWithXAmountTime(){
+        int currentLevel = GameData.InstanceData.currentLevel;
+
+        if (currentLevel >= 0 && currentLevel < levels.Length)
+        {
+            if (Waktu >= levels[currentLevel].timerToGetStar)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return false;
+    }
+
+    private bool IsClearedWithXAmountClicks(){
+        int currentLevel = GameData.InstanceData.currentLevel;
+
+        if (currentLevel >= 0 && currentLevel < levels.Length)
+        {
+            if (amountClicked <= levels[currentLevel].amountClickToGetStar)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return false;
+    }
+
     private void DetermineStars()
     {
         int starsEarned = 0;
 
+        Debug.Log("Amount of clicks: " + amountClicked);
+
         // Periksa waktu yang tersisa dan tentukan berapa bintang yang diperoleh.
-        if (Waktu >= 25)
+        if (IsClearedWithXAmountClicks() && IsClearedWithXAmountTime())
         {
             starsEarned = 3;
         }
-        else if (Waktu >= 15)
+        else if (IsClearedWithXAmountClicks() || IsClearedWithXAmountTime())
         {
             starsEarned = 2;
         }
-        else if (Waktu >= 5)
+        else
         {
             starsEarned = 1;
         }
@@ -341,6 +405,8 @@ public class GameManager : MonoBehaviour
         }
 
         ScoreManager.Instance.SetStarsScorePerLevel(starsEarned);
+
+        Debug.Log("stars earned (not playerprefs) " + starsEarned);
 
         Debug.Log("Total stars earned: " + ScoreManager.Instance.GetTotalScore());
     }
