@@ -297,6 +297,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("game kalah");
         GameAktif = false;
         StartCoroutine(GameLose());
+        FindObjectOfType<Anim>().PlayAnimLose();
     }
 
 

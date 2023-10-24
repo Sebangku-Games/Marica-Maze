@@ -61,14 +61,17 @@ public class Anim : MonoBehaviour
             case 13:
                 transform.parent.position = new Vector3(1.5f, -1.5f, 0f);
                 break;
+            case 14:
+                transform.parent.position = new Vector3(1.5f, 2f, 0f);
+                break;
             case 15:
                 transform.parent.position = new Vector3(-1.5f, -1f, 0f);
                 break;
             case 16:
-                transform.parent.position = new Vector3(1.5f, 2f, 0f);
+                transform.parent.position = new Vector3(-1.5f, -2.5f, 0f);
                 break;
             case 17:
-                transform.parent.position = new Vector3(1.5f, 2f, 0f);
+                transform.parent.position = new Vector3(-1.5f, -2.5f, 0f);
                 break;
             case 18:
                 transform.parent.position = new Vector3(1.5f, 2f, 0f);
@@ -133,6 +136,34 @@ public class Anim : MonoBehaviour
                 break;
             case 16:
                 animator.SetTrigger("tgrFinish17");
+                break;
+        }
+    }
+
+    public void PlayAnimLose()
+    {
+        switch (GameData.InstanceData.currentLevel)
+        {
+            case 10:
+                animator.SetTrigger("tgrFinish11(lose)");
+                break;
+            case 11:
+                animator.SetTrigger("tgrFinish12(lose)");
+                break;
+            case 12:
+                animator.SetTrigger("tgrFinish13(lose)");
+                break;
+            case 13:
+                animator.SetTrigger("tgrFinish14(lose)");
+                break;
+            case 14:
+                animator.SetTrigger("tgrFinish15(lose)");
+                break;
+            case 15:
+                animator.SetTrigger("tgrFinish16(lose)");
+                break;
+            case 16:
+                animator.SetTrigger("tgrFinish17(lose)");
                 break;
         }
     }
