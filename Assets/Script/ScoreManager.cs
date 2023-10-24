@@ -54,7 +54,7 @@ public class ScoreManager : MonoBehaviour
         return PlayerPrefs.GetInt("TotalScore");
     }
 
-    public void DeletePlayerPrefs(){
+    public void DeletePlayerPrefs(){ // For debugging to reset playerprefs data
         PlayerPrefs.DeleteAll();
     }
 }
