@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         // get the current level from game data
         currentLevelIndex = GameData.InstanceData.currentLevel;
         // Load the initial level.
-        FindObjectOfType<Anim>().SetPosition();
+        //FindObjectOfType<Anim>().SetPosition();
         LoadLevel(currentLevelIndex);
         Waktu = _level.waktu;
 
@@ -297,7 +297,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameFinished()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         WinText.SetActive(true);
         DetermineStars();
         Time.timeScale = 0;
@@ -323,12 +323,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("game kalah");
         GameAktif = false;
         StartCoroutine(GameLose());
+        FindObjectOfType<Anim>().PlayAnimLose();
     }
 
 
     private IEnumerator GameLose()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         LoseText.SetActive(true);
         Time.timeScale = 0;
     }
