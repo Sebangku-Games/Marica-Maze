@@ -2317,7 +2317,6 @@ MonoBehaviour:
   starend3: {fileID: 139028062}
   _level: {fileID: 11400000, guid: 7b3e7850a2087594dbf87b441bfb5c67, type: 2}
   amountClicked: 0
-  amountClickedToEarnStar: 0100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &1044511779
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,7 +3465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21f5f6e39ff71a4fa21a8379378b829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 17
+  currentLevel: 0
 --- !u!1 &1635721855
 GameObject:
   m_ObjectHideFlags: 0
