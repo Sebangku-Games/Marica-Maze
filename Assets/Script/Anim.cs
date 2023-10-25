@@ -152,7 +152,7 @@ public class Anim : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger("tgrFinish17");
+                    animator.SetTrigger("tgrFinish17(1)");
                     Debug.Log("Play NOT efficient anim");
                 }
                 

@@ -424,36 +424,36 @@ public class GameManager : MonoBehaviour
             case 15 :
                 if (roads == null)
                 {
-                    return false; // Return false if roads array is not initialized.
+                    return true; // Return false if roads array is not initialized.
                 }
 
                 foreach (var road in roads)
                 {
                     // Check if the road's type is 2, 3, 5, or 6 and if it is filled.
-                    if (road.RoadType == 2 && road.RoadType == 3 && road.RoadType == 5 && road.RoadType == 6 && road.IsFilled)
+                    if (road.RoadType == 6 && road.IsFilled)
                     {
-                        return true; // At least one road of the specified types is filled.
+                        return false; // At least one road of the specified types is filled.
                     }
                 }
 
-                return false; // No road of the specified types is filled.
+                return true; // No road of the specified types is filled.
 
             case 16 :
                 if (roads == null)
                 {
-                    return false; // Return false if roads array is not initialized.
+                    return true; // Return false if roads array is not initialized.
                 }
 
                 foreach (var road in roads)
                 {
                     // Check if the road's type is 2, 3, 5, or 6 and if it is filled.
-                    if (road.RoadType == 2 && road.RoadType == 6 && road.RoadType == 10 && road.RoadType == 11 && road.RoadType == 18 && road.IsFilled)
+                    if (road.RoadType == 3 && road.IsFilled)
                     {
-                        return true; // At least one road of the specified types is filled.
+                        return false; // At least one road of the specified types is filled.
                     }
                 }
 
-                return false; // No road of the specified types is filled.
+                return true; // No road of the specified types is filled.
 
 
             }
