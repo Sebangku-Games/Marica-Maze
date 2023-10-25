@@ -411,6 +411,51 @@ public class GameManager : MonoBehaviour
         Debug.Log("Total stars earned: " + ScoreManager.Instance.GetTotalScore());
     }
 
+
+    // public bool CheckIfClearOnEffiecientRoad(){
+        
+
+    //     return false;
+    // }
+
+    public bool CheckIfSpecificRoadIsFilled()
+    {
+        if (roads == null)
+        {
+            return false; // Return false if roads array is not initialized.
+        }
+
+        foreach (var road in roads)
+        {
+            SwitchLevelToCheckEfficientRoad(road, currentLevelIndex);
+        }
+
+        return false; // No road of the specified types is filled.
+    }
+
+    private bool SwitchLevelToCheckEfficientRoad(Road road, int currLevel){
+        switch (currLevel){
+            case 15 :
+                // Check if the road's type is 2, 3, 5, or 6 and if it is filled.
+                if ((road.RoadType == 2 || road.RoadType == 3 || road.RoadType == 5 || road.RoadType == 6) && road.IsFilled)
+                {
+                    return true; // At least one road of the specified types is filled.
+                }
+                break;
+
+            case 16 :
+                // Check if the road's type is 2, 3, 5, or 6 and if it is filled.
+                if ((road.RoadType == 2 || road.RoadType == 3 || road.RoadType == 5 || road.RoadType == 6) && road.IsFilled)
+                {
+                    return true; // At least one road of the specified types is filled.
+                }
+                break;
+        }
+
+        return false;
+    }
+
+
     // public void NextLevel(){
     //     if (currentLevelIndex >= levels.Length - 1)
     //     {

@@ -132,7 +132,7 @@ public class Anim : MonoBehaviour
                 animator.SetTrigger("tgrFinish15");
                 break;
             case 15:
-                if (GameManager.Instance.amountClicked < 6)
+                if (GameManager.Instance.CheckIfSpecificRoadIsFilled())
                 {
                     animator.SetTrigger("tgrFinish16(2)");
                 }
