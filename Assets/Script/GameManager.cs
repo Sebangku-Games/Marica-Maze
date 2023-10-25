@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private LevelData _level; // Store the current level data.
 
-    [SerializeField] private int amountClicked = 0;
+    [SerializeField] public int amountClicked = 0;
     private bool clicksConditionMet = false;
     private bool timeConditionMet = false;
 

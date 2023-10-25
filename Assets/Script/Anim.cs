@@ -132,7 +132,15 @@ public class Anim : MonoBehaviour
                 animator.SetTrigger("tgrFinish15");
                 break;
             case 15:
-                animator.SetTrigger("tgrFinish16");
+                if (GameManager.Instance.amountClicked < 6)
+                {
+                    animator.SetTrigger("tgrFinish16(2)");
+                }
+                else
+                {
+                    animator.SetTrigger("tgrFinish16");
+                }
+                
                 break;
             case 16:
                 animator.SetTrigger("tgrFinish17");
