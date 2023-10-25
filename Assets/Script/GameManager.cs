@@ -420,40 +420,47 @@ public class GameManager : MonoBehaviour
 
     public bool CheckIfSpecificRoadIsFilled()
     {
-        if (roads == null)
-        {
-            return false; // Return false if roads array is not initialized.
-        }
-
-        foreach (var road in roads)
-        {
-            SwitchLevelToCheckEfficientRoad(road, currentLevelIndex);
-        }
-
-        return false; // No road of the specified types is filled.
-    }
-
-    private bool SwitchLevelToCheckEfficientRoad(Road road, int currLevel){
-        switch (currLevel){
+        switch(currentLevelIndex){
             case 15 :
-                // Check if the road's type is 2, 3, 5, or 6 and if it is filled.
-                if ((road.RoadType == 2 || road.RoadType == 3 || road.RoadType == 5 || road.RoadType == 6) && road.IsFilled)
+                if (roads == null)
                 {
-                    return true; // At least one road of the specified types is filled.
+                    return false; // Return false if roads array is not initialized.
                 }
-                break;
+
+                foreach (var road in roads)
+                {
+                    // Check if the road's type is 2, 3, 5, or 6 and if it is filled.
+                    if ((road.RoadType == 2 || road.RoadType == 3 || road.RoadType == 5 || road.RoadType == 6) && road.IsFilled)
+                    {
+                        return true; // At least one road of the specified types is filled.
+                    }
+                }
+
+                return false; // No road of the specified types is filled.
 
             case 16 :
-                // Check if the road's type is 2, 3, 5, or 6 and if it is filled.
-                if ((road.RoadType == 2 || road.RoadType == 3 || road.RoadType == 5 || road.RoadType == 6) && road.IsFilled)
+                if (roads == null)
                 {
-                    return true; // At least one road of the specified types is filled.
+                    return false; // Return false if roads array is not initialized.
                 }
-                break;
-        }
 
+                foreach (var road in roads)
+                {
+                    // Check if the road's type is 2, 3, 5, or 6 and if it is filled.
+                    if ((road.RoadType == 2 || road.RoadType == 6 || road.RoadType == 10 || road.RoadType == 11 || road.RoadType == 18) && road.IsFilled)
+                    {
+                        return true; // At least one road of the specified types is filled.
+                    }
+                }
+
+                return false; // No road of the specified types is filled.
+
+
+            }
         return false;
+        
     }
+
 
 
     // public void NextLevel(){

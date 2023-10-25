@@ -135,15 +135,27 @@ public class Anim : MonoBehaviour
                 if (GameManager.Instance.CheckIfSpecificRoadIsFilled())
                 {
                     animator.SetTrigger("tgrFinish16(2)");
+                    Debug.Log("Play efficient anim");
                 }
                 else
                 {
                     animator.SetTrigger("tgrFinish16");
+                    Debug.Log("Play NOT efficient anim");
                 }
                 
                 break;
             case 16:
-                animator.SetTrigger("tgrFinish17");
+                if (GameManager.Instance.CheckIfSpecificRoadIsFilled())
+                {
+                    animator.SetTrigger("tgrFinish17(2)");
+                    Debug.Log("Play efficient anim");
+                }
+                else
+                {
+                    animator.SetTrigger("tgrFinish17");
+                    Debug.Log("Play NOT efficient anim");
+                }
+                
                 break;
         }
     }
