@@ -322,6 +322,7 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log("game kalah");
         GameAktif = false;
+        hasGameFinished = true;
         StartCoroutine(GameLose());
         FindObjectOfType<Anim>().PlayAnimLose();
     }
