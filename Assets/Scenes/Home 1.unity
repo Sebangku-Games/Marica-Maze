@@ -771,6 +771,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: musik
       objectReference: {fileID: 0}
+    - target: {fileID: 562334525204747569, guid: fbb7da5fc1dfc114baed503911e1c7e1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d1dedf98485016c418756ed68a7b26c7, type: 3}
     - target: {fileID: 562334525204747574, guid: fbb7da5fc1dfc114baed503911e1c7e1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2510,7 +2514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.113471895, y: 0.09610613}
   m_AnchorMax: {x: 0.32700002, y: 0.20840408}
-  m_AnchoredPosition: {x: -0.4403, y: -0.000061035156}
+  m_AnchoredPosition: {x: -0.44029236, y: -0.000061035156}
   m_SizeDelta: {x: -2.0697, y: -0.9745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985027259
