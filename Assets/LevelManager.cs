@@ -30,7 +30,10 @@ public class LevelManager : MonoBehaviour
         DeactivateStars(starLevelMap3);
         DeactivateStars(starLevelMap4);
 
-        CheckStarsFromPlayerPrefs();
+        CheckStarsFromPlayerPrefsMap1();
+        CheckStarsFromPlayerPrefsMap2();
+        CheckStarsFromPlayerPrefsMap3();
+        CheckStarsFromPlayerPrefsMap4();
     }
 
     private void DeactivateStars(GameObject[] starArray)
@@ -76,8 +79,8 @@ public class LevelManager : MonoBehaviour
 
 
 
-    public void CheckStarsFromPlayerPrefs(){
-        for (int i = 0; i < 20; i++)
+    public void CheckStarsFromPlayerPrefsMap1(){
+        for (int i = 0; i < 5; i++)
         {
             if (PlayerPrefs.HasKey((i+1).ToString()))
             {
@@ -97,6 +100,84 @@ public class LevelManager : MonoBehaviour
                     starLevelMap1[i].transform.GetChild(2).gameObject.SetActive(true);
 
                     UnlockLevel(i+2);
+                }
+            }
+        }
+    }
+
+    public void CheckStarsFromPlayerPrefsMap2(){
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey((i+6).ToString()))
+            {
+                if (PlayerPrefs.GetInt((i+6).ToString()) == 1)
+                {
+                    starLevelMap2[i].transform.GetChild(0).gameObject.SetActive(true);
+                }
+                else if (PlayerPrefs.GetInt((i+6).ToString()) == 2)
+                {
+                    starLevelMap2[i].transform.GetChild(0).gameObject.SetActive(true);
+                    starLevelMap2[i].transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (PlayerPrefs.GetInt((i+6).ToString()) == 3)
+                {
+                    starLevelMap2[i].transform.GetChild(0).gameObject.SetActive(true);
+                    starLevelMap2[i].transform.GetChild(1).gameObject.SetActive(true);
+                    starLevelMap2[i].transform.GetChild(2).gameObject.SetActive(true);
+
+                    UnlockLevel(i+7);
+                }
+            }
+        }
+    }
+
+    public void CheckStarsFromPlayerPrefsMap3(){
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey((i+11).ToString()))
+            {
+                if (PlayerPrefs.GetInt((i+11).ToString()) == 1)
+                {
+                    starLevelMap3[i].transform.GetChild(0).gameObject.SetActive(true);
+                }
+                else if (PlayerPrefs.GetInt((i+11).ToString()) == 2)
+                {
+                    starLevelMap3[i].transform.GetChild(0).gameObject.SetActive(true);
+                    starLevelMap3[i].transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (PlayerPrefs.GetInt((i+11).ToString()) == 3)
+                {
+                    starLevelMap3[i].transform.GetChild(0).gameObject.SetActive(true);
+                    starLevelMap3[i].transform.GetChild(1).gameObject.SetActive(true);
+                    starLevelMap3[i].transform.GetChild(2).gameObject.SetActive(true);
+
+                    UnlockLevel(i+12);
+                }
+            }
+        }
+    }
+
+    public void CheckStarsFromPlayerPrefsMap4(){
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey((i+16).ToString()))
+            {
+                if (PlayerPrefs.GetInt((i+16).ToString()) == 1)
+                {
+                    starLevelMap4[i].transform.GetChild(0).gameObject.SetActive(true);
+                }
+                else if (PlayerPrefs.GetInt((i+16).ToString()) == 2)
+                {
+                    starLevelMap4[i].transform.GetChild(0).gameObject.SetActive(true);
+                    starLevelMap4[i].transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (PlayerPrefs.GetInt((i+16).ToString()) == 3)
+                {
+                    starLevelMap4[i].transform.GetChild(0).gameObject.SetActive(true);
+                    starLevelMap4[i].transform.GetChild(1).gameObject.SetActive(true);
+                    starLevelMap4[i].transform.GetChild(2).gameObject.SetActive(true);
+
+                    UnlockLevel(i+17);
                 }
             }
         }
