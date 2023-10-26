@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         if (Instance != null && Instance != this)
-            Destroy(this);
+            Destroy(gameObject);
         else
             Instance = this;
 
@@ -48,6 +48,7 @@ public class ScoreManager : MonoBehaviour
     private void AddScoreToTotalScore(int score){
         // Add score to total score
         PlayerPrefs.SetInt("TotalScore", PlayerPrefs.GetInt("TotalScore") + score);
+        FindObjectOfType<Leaderboards>().AddScoreToLeaderboard(PlayerPrefs.GetInt("TotalScore"));
     }
 
     public int GetTotalScore(){
