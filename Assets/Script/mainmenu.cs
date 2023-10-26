@@ -39,4 +39,9 @@ public class mainmenu : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void loadScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+
 }
