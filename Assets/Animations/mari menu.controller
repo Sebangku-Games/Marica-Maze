@@ -1156,13 +1156,13 @@ AnimatorStateMachine:
     m_Position: {x: 1240, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1963426186006805466}
-    m_Position: {x: 800, y: 50, z: 0}
+    m_Position: {x: 850, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4082575626712537133}
-    m_Position: {x: 1020, y: 60, z: 0}
+    m_Position: {x: 70, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2490839423543972329}
-    m_Position: {x: 1240, y: 60, z: 0}
+    m_Position: {x: 1290, y: -40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4198771142497708074}
     m_Position: {x: 660, y: 120, z: 0}

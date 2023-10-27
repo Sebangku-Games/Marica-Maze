@@ -448,7 +448,7 @@ public class GameManager : MonoBehaviour
                 foreach (var road in roads)
                 {
                     // Check if the road's type is 2, 3, 5, or 6 and if it is filled.
-                    if (road.RoadType == 3 && road.IsFilled)
+                    if (road.RoadType == 8 && road.IsFilled)
                     {
                         return false; // At least one road of the specified types is filled.
                     }
