@@ -2423,7 +2423,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 06a86265a02c3a04baa6d6e066b18618, type: 2}
   - {fileID: 11400000, guid: ffa9dfde1feb5244992bbe638700f867, type: 2}
   - {fileID: 11400000, guid: 6915afb378d3b834cbbe202c282c98c4, type: 2}
-  _cellPrefab: {fileID: 2317155852989066130, guid: 101eeee7cc639d54b843ea14f7a37df3, type: 3}
+  _cellPrefab: {fileID: 2317155852989066130, guid: 972a0b9450b85eb4a899a8a0c6d39bb9, type: 3}
   currentLevelIndex: 0
   textTimer: {fileID: 390732413}
   Waktu: 0
