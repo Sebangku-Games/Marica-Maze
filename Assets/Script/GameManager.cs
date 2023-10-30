@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     private bool clicksConditionMet = false;
     private bool timeConditionMet = false;
 
+    private Achievements achievements;
 
 
     private void Awake()
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
         Waktu = _level.waktu;
 
         amountClicked = 0;
+
+        achievements = FindObjectOfType<Achievements>();
     }
 
     private void LoadLevel(int levelIndex)
@@ -291,12 +294,41 @@ public class GameManager : MonoBehaviour
         // Jika semua sel pipa tipe 2 terisi, maka permainan selesai.
         FindObjectOfType<Anim>().PlayAnim();
         hasGameFinished = true;
+        // check if game finished in <= 2 seconds
+        if (Waktu >= levels[currentLevelIndex].waktu - 2)
+        {
+            achievements.UnlockAchievement("ClearLessThan2Seconds");
+        }
         StartCoroutine(GameFinished());
     }
 
 
     private IEnumerator GameFinished()
     {
+        if (achievements.IsAllLevelInMap1Unlocked()){
+            achievements.UnlockAchievement("Hutan");
+        } 
+        else if (achievements.IsAllLevelInMap2Unlocked()){
+            achievements.UnlockAchievement("Gurun");
+        }
+        else if (achievements.IsAllLevelInMap3Unlocked()){
+            achievements.UnlockAchievement("Es");
+        }
+        else if (achievements.IsAllLevelInMap4Unlocked()){
+            achievements.UnlockAchievement("Air");
+        }
+        else if (achievements.IsAllLevelUnlocked()){
+            achievements.UnlockAchievement("SeluruhWilayah");
+        }
+        
+
+        if (currentLevelIndex == 19)
+        {
+            if (achievements.IsMetHewanBuas()){
+                achievements.UnlockAchievement("HewanBuas");
+            }
+        }
+
         yield return new WaitForSeconds(2f);
         WinText.SetActive(true);
         DetermineStars();
@@ -320,12 +352,23 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        if (roadType9){
+            int currentLevel = GameData.InstanceData.currentLevel + 1; // current level bernilai 11 - 20
+            SetBoolPlayerPrefs("KetemuHewanBuasLevel" + currentLevel.ToString(), true);
+        }
         Debug.Log("game kalah");
         GameAktif = false;
         hasGameFinished = true;
         StartCoroutine(GameLose());
         FindObjectOfType<Anim>().PlayAnimLose();
     }
+
+    private void SetBoolPlayerPrefs(string key, bool value){
+        // Set an int based on the value bool
+        PlayerPrefs.SetInt(key, value ? 1 : 0);
+    }
+
+    
 
 
     private IEnumerator GameLose()
