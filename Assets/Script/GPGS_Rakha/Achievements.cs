@@ -6,9 +6,18 @@ using UnityEngine.SocialPlatforms;
 
 public class Achievements : MonoBehaviour
 {
+    const string Ach_Login = "CgkIi8Dh0-sKEAIQCw";
+    // HIDDEN ACHIEVEMENT
     const string Ach_ClearLessThan2Seconds = "CgkIi8Dh0-sKEAIQAw";
+    const string Ach_KetemuHewanBuas = "CgkIi8Dh0-sKEAIQCg";
 
-    const string Ach_IdTestLOL = "CgkIi8Dh0-sKEAIQBA";
+    // REVEALED ACHIEVEMENT
+    //const string Ach_IdTestLOL = "CgkIi8Dh0-sKEAIQBA";
+    const string Ach_IdHutan = "CgkIi8Dh0-sKEAIQBQ";
+    const string Ach_IdGurun = "CgkIi8Dh0-sKEAIQBg";
+    const string Ach_IdEs = "CgkIi8Dh0-sKEAIQBw";
+    const string Ach_IdAir = "CgkIi8Dh0-sKEAIQCA";
+    const string Ach_IdSeluruhWilayah = "CgkIi8Dh0-sKEAIQCQ";
 
     //[SerializeField] private GameObject loginPanel;
 
@@ -37,14 +46,39 @@ public class Achievements : MonoBehaviour
 
 
     // unlock achievement ZETAAA UWEEEEEEEEEEEEEEEEEEE
-    public void UnlockAchievementLOL(){
-        ReportProgressAchievement(Ach_IdTestLOL, 100f);
+    public void UnlockAchievementLogin(){
+        ReportProgressAchievement(Ach_Login, 100f);
     }
 
-    // unlock achievement for each scene
-    public void UnlockAchievement()
+    // unlock achievement for each
+    public void UnlockAchievement(string achievementName)
     {
-        ReportProgressAchievement(Ach_ClearLessThan2Seconds, 100f);
+        switch (achievementName)
+        {
+            case "Hutan":
+                ReportProgressAchievement(Ach_IdHutan, 100f);
+                break;
+            case "Gurun":
+                ReportProgressAchievement(Ach_IdGurun, 100f);
+                break;
+            case "Es":
+                ReportProgressAchievement(Ach_IdEs, 100f);
+                break;
+            case "Air":
+                ReportProgressAchievement(Ach_IdAir, 100f);
+                break;
+            case "SeluruhWilayah":
+                ReportProgressAchievement(Ach_IdSeluruhWilayah, 100f);
+                break;
+            case "ClearLessThan2Seconds":
+                ReportProgressAchievement(Ach_ClearLessThan2Seconds, 100f);
+                break;
+            case "HewanBuas":
+                ReportProgressAchievement(Ach_KetemuHewanBuas, 100f);
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -59,6 +93,100 @@ public class Achievements : MonoBehaviour
                 Debug.Log("Achievement Failed");
             }
         });
+    }
+
+    
+    public bool IsAllLevelInMap1Unlocked(){
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey((i+1).ToString()))
+            {
+                if (PlayerPrefs.GetInt((i+1).ToString()) != 3)
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool IsAllLevelInMap2Unlocked(){
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey((i+6).ToString()))
+            {
+                if (PlayerPrefs.GetInt((i+6).ToString()) != 3)
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool IsAllLevelInMap3Unlocked(){
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey((i+11).ToString()))
+            {
+                if (PlayerPrefs.GetInt((i+11).ToString()) != 3)
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool IsAllLevelInMap4Unlocked(){
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey((i+16).ToString()))
+            {
+                if (PlayerPrefs.GetInt((i+16).ToString()) != 3)
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool IsAllLevelUnlocked(){
+        if (IsAllLevelInMap1Unlocked() && IsAllLevelInMap2Unlocked() && IsAllLevelInMap3Unlocked() && IsAllLevelInMap4Unlocked())
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool GetBoolPlayerPrefs(string key){
+        // returns true if the int is 1, false if 0
+        return PlayerPrefs.GetInt(key) == 1 ? true : false;
+    }
+
+    public bool IsMetHewanBuas(){
+        // check if playerprefs "KetemuHewanBuasLevel" + currentLevel.ToString(), from level 11 to 20 is true
+        for (int i = 0; i < 10; i++)
+        {
+            if (!GetBoolPlayerPrefs("KetemuHewanBuasLevel" + (i+11).ToString()))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
