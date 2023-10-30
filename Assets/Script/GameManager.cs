@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject WinText;
     public GameObject LoseText;
+    public TMP_Text amountClickText;
 
     public GameObject starend1;
     public GameObject starend2;
@@ -62,6 +63,8 @@ public class GameManager : MonoBehaviour
         Waktu = _level.waktu;
 
         amountClicked = 0;
+
+        UpdateAmountClickText();
 
         achievements = FindObjectOfType<Achievements>();
     }
@@ -201,6 +204,7 @@ public class GameManager : MonoBehaviour
             roads[row, col].UpdateInput();
             StartCoroutine(ShowHint());
             amountClicked++;
+            UpdateAmountClickText();
         }
     }
 
@@ -551,6 +555,11 @@ public class GameManager : MonoBehaviour
         }
         return false;
         
+    }
+
+    private void UpdateAmountClickText(){
+        int remainingClicks = levels[currentLevelIndex].amountClickToGetStar - amountClicked;
+        amountClickText.text = (remainingClicks < 0) ? "0" : remainingClicks.ToString();
     }
 
 
