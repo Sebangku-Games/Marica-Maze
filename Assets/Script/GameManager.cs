@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject WinText;
     public GameObject LoseText;
+    public GameObject Tangkap;
 
     public GameObject starend1;
     public GameObject starend2;
@@ -374,7 +375,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameLose()
     {
         yield return new WaitForSeconds(1.5f);
-        LoseText.SetActive(true);
+        Tangkap.SetActive(true);
         Time.timeScale = 0;
     }
 
