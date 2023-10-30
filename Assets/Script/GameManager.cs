@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject WinText;
     public GameObject LoseText;
     public GameObject Tangkap;
+    public TMP_Text amountClickText;
 
     public GameObject starend1;
     public GameObject starend2;
@@ -201,7 +202,7 @@ public class GameManager : MonoBehaviour
         {
             roads[row, col].UpdateInput();
             StartCoroutine(ShowHint());
-            amountClicked++;
+
         }
     }
 
@@ -309,16 +310,20 @@ public class GameManager : MonoBehaviour
         if (achievements.IsAllLevelInMap1Unlocked()){
             achievements.UnlockAchievement("Hutan");
         } 
-        else if (achievements.IsAllLevelInMap2Unlocked()){
+
+        if (achievements.IsAllLevelInMap2Unlocked()){
             achievements.UnlockAchievement("Gurun");
         }
-        else if (achievements.IsAllLevelInMap3Unlocked()){
+
+        if (achievements.IsAllLevelInMap3Unlocked()){
             achievements.UnlockAchievement("Es");
         }
-        else if (achievements.IsAllLevelInMap4Unlocked()){
+
+        if (achievements.IsAllLevelInMap4Unlocked()){
             achievements.UnlockAchievement("Air");
         }
-        else if (achievements.IsAllLevelUnlocked()){
+        
+        if (achievements.IsAllLevelUnlocked()){
             achievements.UnlockAchievement("SeluruhWilayah");
         }
         
@@ -554,6 +559,10 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void UpdateAmountClickText(){
+        int remainingClicks = levels[currentLevelIndex].amountClickToGetStar - amountClicked;
+        amountClickText.text = remainingClicks < 0 ? "0" : remainingClicks.ToString();
+    }
 
 
     // public void NextLevel(){

@@ -78,6 +78,9 @@ public class Road : MonoBehaviour
             return;
         }
 
+        GameManager.Instance.amountClicked++;
+        GameManager.Instance.UpdateAmountClickText();
+
         rotation = (rotation + 1) % (maxRotation + 1);
         currentRoad.transform.eulerAngles = new Vector3(0, 0, rotation * rotationMultiplier);
     }
