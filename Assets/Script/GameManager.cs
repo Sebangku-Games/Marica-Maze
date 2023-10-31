@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         hasGameFinished = false;
-        
+
     }
 
     private void Start()
@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
         amountClicked = 0;
 
         achievements = FindObjectOfType<Achievements>();
+
+        UpdateAmountClickText();
     }
 
     private void LoadLevel(int levelIndex)
@@ -83,7 +85,7 @@ public class GameManager : MonoBehaviour
         // Set the levelText to display the current level index.
         if (levelText != null)
         {
-            levelText.text = "Level " + currLevel.ToString();
+            levelText.text = "LEVEL " + currLevel.ToString();
         }
 
         _level = levels[levelIndex]; // Update the current level data.
