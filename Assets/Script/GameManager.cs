@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private float s;
     public bool GameAktif = true;
     public Text levelText;
+    public bool isGamePaused = false;
 
     public GameObject Star1;
     public GameObject Star2;
@@ -33,6 +34,12 @@ public class GameManager : MonoBehaviour
     public GameObject LoseText;
     public GameObject Tangkap;
     public TMP_Text amountClickText;
+
+    //panel tutor
+    public GameObject Panel1;
+    public GameObject Panel2;
+    public GameObject Panel3;
+    public GameObject Panel4;
 
     public GameObject starend1;
     public GameObject starend2;
@@ -68,7 +75,16 @@ public class GameManager : MonoBehaviour
         achievements = FindObjectOfType<Achievements>();
 
         UpdateAmountClickText();
+
+        if(currentLevelIndex == 0 && !isGamePaused)
+        {
+            
+            Panel1.SetActive(true);
+            
+        }
     }
+
+    
 
     private void LoadLevel(int levelIndex)
     {
