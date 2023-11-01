@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public GameObject Star2;
     public GameObject Star3;
 
+    public GameObject PanelTutor1;
+    public GameObject PanelTutor2;
     public GameObject WinText;
     public GameObject LoseText;
     public GameObject Tangkap;
@@ -67,13 +69,28 @@ public class GameManager : MonoBehaviour
 
         achievements = FindObjectOfType<Achievements>();
 
+<<<<<<< Updated upstream
         UpdateAmountClickText();
+=======
+        // Cek jika kita berada di level 1, kemudian aktifkan GameObject pada level 1
+        if (currentLevelIndex == 0)
+        {
+            Debug.Log("Tutorial level 1");
+            PanelTutor1.SetActive(true);
+        }
+        if (currentLevelIndex == 5)
+        {
+            Debug.Log("Tutorial level 6");
+            PanelTutor2.SetActive(true);
+        }
+        
+>>>>>>> Stashed changes
     }
 
     private void LoadLevel(int levelIndex)
     {
         WinText.SetActive(false);
-
+        
         int currLevel = currentLevelIndex + 1;
 
         if (levelIndex < 0 || levelIndex >= levels.Length)
