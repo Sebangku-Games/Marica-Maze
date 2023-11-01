@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     public float Waktu;
     private float s;
     public bool GameAktif = true;
-    public Text levelText;
     public bool isTutorialShowing = false;
+    public TextMeshProUGUI levelText;
 
     public GameObject Star1;
     public GameObject Star2;
