@@ -2444,7 +2444,7 @@ MonoBehaviour:
   LoseText: {fileID: 1339842069}
   Tangkap: {fileID: 66566327}
   amountClickText: {fileID: 6220527157026078879}
-  Panel1: {fileID: 0}
+  Panel1: {fileID: 5146051314168127755}
   Panel2: {fileID: 0}
   Panel3: {fileID: 0}
   Panel4: {fileID: 0}
