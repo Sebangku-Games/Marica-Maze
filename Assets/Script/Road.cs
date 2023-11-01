@@ -73,6 +73,11 @@ public class Road : MonoBehaviour
 
     public void UpdateInput()
     {
+        if (GameManager.Instance.isTutorialShowing)
+        {
+            return;
+        }
+
         if (RoadType == 0 || RoadType == 1 || RoadType == 2 || isRotationPaused || RoadType == 9 || RoadType == 7 || RoadType == 8)
         {
             return;

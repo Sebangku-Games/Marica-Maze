@@ -24,7 +24,6 @@ public class loadsistem : MonoBehaviour
     }
     public void pausegame()
     {
-        GameManager.Instance.isGamePaused = true;
         isGamePaused = true;
         Time.timeScale = 0;
         Pause.SetActive(true);
@@ -39,7 +38,6 @@ public class loadsistem : MonoBehaviour
 
     public void resumegame()
     {
-        GameManager.Instance.isGamePaused = false;
         isGamePaused = false;
         Time.timeScale = 1;
         Pause.SetActive(false);

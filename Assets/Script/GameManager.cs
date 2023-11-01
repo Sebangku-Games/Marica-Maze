@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private float s;
     public bool GameAktif = true;
     public Text levelText;
-    public bool isGamePaused = false;
+    public bool isTutorialShowing = false;
 
     public GameObject Star1;
     public GameObject Star2;
@@ -76,10 +76,10 @@ public class GameManager : MonoBehaviour
 
         UpdateAmountClickText();
 
-        if(currentLevelIndex == 0 && !isGamePaused)
+        if(currentLevelIndex == 0)
         {
             
-            Panel1.SetActive(true);
+            ShowTutorial();
             
         }
     }
@@ -596,6 +596,18 @@ public class GameManager : MonoBehaviour
     //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     //     Time.timeScale = 1;
     // }
+
+    public void ShowTutorial(){
+        isTutorialShowing = true;
+        Time.timeScale = 0;
+        Panel1.SetActive(true);
+    }
+
+    public void HideTutorial(){
+        isTutorialShowing = false;
+        Time.timeScale = 1;
+        Panel1.SetActive(false);
+    }
 
 
 }
