@@ -636,6 +636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: musik
       objectReference: {fileID: 0}
+    - target: {fileID: 562334525204747568, guid: fbb7da5fc1dfc114baed503911e1c7e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 562334525204747569, guid: fbb7da5fc1dfc114baed503911e1c7e1, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -6673,7 +6677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 590120029}
-  soundToggle: {fileID: 0}
+  soundToggle: {fileID: 817922332}
 --- !u!1 &2051266777
 GameObject:
   m_ObjectHideFlags: 0

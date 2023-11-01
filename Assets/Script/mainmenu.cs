@@ -31,6 +31,11 @@ public class mainmenu : MonoBehaviour
         {
             music.volume = enableSound ? 1.0f : 0.0f;
         }
+        AudioListener audioListener = Camera.main.GetComponent<AudioListener>();
+        if (audioListener != null)
+        {
+            audioListener.enabled = enableSound;
+        }
     }
 
     public void LoadLevel(int index)
