@@ -76,10 +76,10 @@ public class GameManager : MonoBehaviour
 
         UpdateAmountClickText();
 
-        if(currentLevelIndex == 0)
+        if(currentLevelIndex == 0 || currentLevelIndex == 5 || currentLevelIndex == 10 || currentLevelIndex == 15)
         {
             
-            ShowTutorial();
+            ShowTutorial(currentLevelIndex);
             
         }
     }
@@ -597,10 +597,33 @@ public class GameManager : MonoBehaviour
     //     Time.timeScale = 1;
     // }
 
-    public void ShowTutorial(){
-        isTutorialShowing = true;
-        Time.timeScale = 0;
-        Panel1.SetActive(true);
+    public void ShowTutorial(int level){
+        switch (level)
+        {
+            case 0:
+                isTutorialShowing = true;
+                Time.timeScale = 0;
+                Panel1.SetActive(true);
+                break;
+            case 5:
+                isTutorialShowing = true;
+                Time.timeScale = 0;
+                Panel2.SetActive(true);
+                break;
+            case 10:
+                isTutorialShowing = true;
+                Time.timeScale = 0;
+                Panel3.SetActive(true);
+                break;
+            case 15:
+                isTutorialShowing = true;
+                Time.timeScale = 0;
+                Panel4.SetActive(true);
+                break;
+            default:
+                break;
+        }
+        
     }
 
     public void HideTutorial(){
