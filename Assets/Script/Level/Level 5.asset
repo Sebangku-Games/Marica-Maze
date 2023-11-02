@@ -17,4 +17,4 @@ MonoBehaviour:
   Data: 180000000f000000010000000d0000000000000000000000020000000000000000000000
   waktu: 30
   timerToGetStar: 25
-  amountClickToGetStar: 5
+  amountClickToGetStar: 3
