@@ -2451,7 +2451,7 @@ MonoBehaviour:
   starend1: {fileID: 1635721855}
   starend2: {fileID: 1340394523}
   starend3: {fileID: 139028062}
-  _level: {fileID: 11400000, guid: 7b3e7850a2087594dbf87b441bfb5c67, type: 2}
+  _level: {fileID: 0}
   amountClicked: 0
 --- !u!1 &907508244
 GameObject:

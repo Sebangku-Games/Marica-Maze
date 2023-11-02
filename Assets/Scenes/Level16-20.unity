@@ -2682,6 +2682,7 @@ MonoBehaviour:
   textTimer: {fileID: 390732413}
   Waktu: 0
   GameAktif: 1
+  isTutorialShowing: 0
   levelText: {fileID: 1485333239}
   Star1: {fileID: 1943634506}
   Star2: {fileID: 481263973}
@@ -2690,6 +2691,10 @@ MonoBehaviour:
   LoseText: {fileID: 1339842069}
   Tangkap: {fileID: 1389409995}
   amountClickText: {fileID: 4401762841995798291}
+  Panel1: {fileID: 0}
+  Panel2: {fileID: 0}
+  Panel3: {fileID: 0}
+  Panel4: {fileID: 0}
   starend1: {fileID: 1635721855}
   starend2: {fileID: 1340394523}
   starend3: {fileID: 139028062}
@@ -5157,7 +5162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3691048224046042052, guid: 1f254a8a01cb0db4cbbacc9af0aca0ac, type: 3}
       propertyPath: currentLevel
-      value: 17
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3691048224046042053, guid: 1f254a8a01cb0db4cbbacc9af0aca0ac, type: 3}
       propertyPath: m_RootOrder

@@ -2575,6 +2575,7 @@ MonoBehaviour:
   textTimer: {fileID: 390732413}
   Waktu: 0
   GameAktif: 1
+  isTutorialShowing: 0
   levelText: {fileID: 612294067}
   Star1: {fileID: 1943634506}
   Star2: {fileID: 481263973}
@@ -2583,6 +2584,10 @@ MonoBehaviour:
   LoseText: {fileID: 1339842069}
   Tangkap: {fileID: 2102445643}
   amountClickText: {fileID: 2526673663369152412}
+  Panel1: {fileID: 0}
+  Panel2: {fileID: 0}
+  Panel3: {fileID: 0}
+  Panel4: {fileID: 0}
   starend1: {fileID: 1635721855}
   starend2: {fileID: 1340394523}
   starend3: {fileID: 139028062}
