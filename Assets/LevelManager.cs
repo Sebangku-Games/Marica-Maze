@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("Panel Map")]
+    public GameObject[] panelMap;
+
     [Header("Map 1 (Level 1 - 5)")]
     public GameObject[] starLevelMap1;
-
     
     [Header("Map 2 (Level 6 - 10)")]
     public GameObject[] starLevelMap2;
@@ -23,6 +25,9 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        SetAllPanelMapToFalse();
+        CheckLastLevel();
+        
         SetAllLevelToLocked();
 
         DeactivateStars(starLevelMap1);
@@ -34,6 +39,28 @@ public class LevelManager : MonoBehaviour
         CheckStarsFromPlayerPrefsMap2();
         CheckStarsFromPlayerPrefsMap3();
         CheckStarsFromPlayerPrefsMap4();
+    }
+
+    private void CheckLastLevel(){
+        if (GameData.InstanceData.currentLevel >= 0 && GameData.InstanceData.currentLevel < 5){
+            panelMap[0].SetActive(true);
+        }
+        else if (GameData.InstanceData.currentLevel >= 5 && GameData.InstanceData.currentLevel < 10){
+            panelMap[1].SetActive(true);
+        }
+        else if (GameData.InstanceData.currentLevel >= 10 && GameData.InstanceData.currentLevel < 15){
+            panelMap[2].SetActive(true);
+        }
+        else if (GameData.InstanceData.currentLevel >= 15 && GameData.InstanceData.currentLevel < 20){
+            panelMap[3].SetActive(true);
+        }
+    }
+
+    private void SetAllPanelMapToFalse(){
+        foreach (GameObject panel in panelMap)
+        {
+            panel.SetActive(false);
+        }
     }
 
     private void DeactivateStars(GameObject[] starArray)

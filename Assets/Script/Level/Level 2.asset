@@ -16,5 +16,5 @@ MonoBehaviour:
   Column: 3
   Data: 020000002200000000000000000000001900000000000000010000000600000000000000
   waktu: 30
-  timerToGetStar: 25
+  timerToGetStar: 15
   amountClickToGetStar: 2

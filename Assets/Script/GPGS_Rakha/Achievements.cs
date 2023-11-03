@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public class Achievements : MonoBehaviour
 {
-    const string Ach_Login = "CgkIi8Dh0-sKEAIQCw";
+    //const string Ach_Login = "CgkIi8Dh0-sKEAIQCw";
     // HIDDEN ACHIEVEMENT
     const string Ach_ClearLessThan2Seconds = "CgkIi8Dh0-sKEAIQAw";
     const string Ach_KetemuHewanBuas = "CgkIi8Dh0-sKEAIQCg";
@@ -46,9 +46,9 @@ public class Achievements : MonoBehaviour
 
 
     // unlock achievement ZETAAA UWEEEEEEEEEEEEEEEEEEE
-    public void UnlockAchievementLogin(){
-        ReportProgressAchievement(Ach_Login, 100f);
-    }
+    // public void UnlockAchievementLogin(){
+    //     ReportProgressAchievement(Ach_Login, 100f);
+    // }
 
     // unlock achievement for each
     public void UnlockAchievement(string achievementName)
