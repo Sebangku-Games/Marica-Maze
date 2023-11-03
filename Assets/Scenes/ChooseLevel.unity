@@ -1898,10 +1898,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAP 4
+  m_text: Pantai
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}
-  m_sharedMaterial: {fileID: 18355528546518325, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ad31ef5a9c476c24686cb3ba3905c9fc, type: 2}
+  m_sharedMaterial: {fileID: 1929115190788842388, guid: ad31ef5a9c476c24686cb3ba3905c9fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1931,7 +1931,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 53.63881}
+  m_margin: {x: 0, y: 0, z: 0, w: 34.889893}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4449,10 +4449,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAP 2
+  m_text: Gurun
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}
-  m_sharedMaterial: {fileID: 18355528546518325, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ad31ef5a9c476c24686cb3ba3905c9fc, type: 2}
+  m_sharedMaterial: {fileID: 1929115190788842388, guid: ad31ef5a9c476c24686cb3ba3905c9fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4482,7 +4482,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4512,7 +4512,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 71.03582}
+  m_margin: {x: 0, y: 0, z: 0, w: 49.75408}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13575,10 +13575,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAP 1
+  m_text: Hutan
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}
-  m_sharedMaterial: {fileID: 18355528546518325, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ad31ef5a9c476c24686cb3ba3905c9fc, type: 2}
+  m_sharedMaterial: {fileID: 1929115190788842388, guid: ad31ef5a9c476c24686cb3ba3905c9fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13608,7 +13608,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -13638,7 +13638,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 65.53186}
+  m_margin: {x: 0, y: 0, z: 0, w: 37.155937}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -14608,10 +14608,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAP 3
+  m_text: Kutub Utara
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}
-  m_sharedMaterial: {fileID: 18355528546518325, guid: 216fd2475c1ff53449fa4b4d22886ee5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ad31ef5a9c476c24686cb3ba3905c9fc, type: 2}
+  m_sharedMaterial: {fileID: 1929115190788842388, guid: ad31ef5a9c476c24686cb3ba3905c9fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14641,7 +14641,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -14671,7 +14671,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 64.27912}
+  m_margin: {x: 0, y: 0, z: 0, w: 21.71537}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
