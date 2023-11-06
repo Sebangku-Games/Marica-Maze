@@ -811,7 +811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.46138245, y: 0.26043436}
   m_AnchorMax: {x: 0.6943602, y: 0.37096637}
-  m_AnchoredPosition: {x: 25.12999, y: 26.494385}
+  m_AnchoredPosition: {x: 25.130005, y: 26.494629}
   m_SizeDelta: {x: 50.26, y: 52.9886}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &72270444
@@ -1334,9 +1334,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      - m_Target: {fileID: 1995341600}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButton
+        m_MethodName: PlayPageFlip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1491,9 +1491,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      - m_Target: {fileID: 1995341600}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButton
+        m_MethodName: PlayPageFlip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2806,7 +2806,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      - m_Target: {fileID: 1995341600}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButton
         m_Mode: 1
@@ -4762,7 +4762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18100001, y: 0.20311902}
   m_AnchorMax: {x: 0.83665675, y: 0.64524823}
-  m_AnchoredPosition: {x: 4.881775, y: -12.349976}
+  m_AnchoredPosition: {x: 4.881836, y: -12.3498535}
   m_SizeDelta: {x: -1.2991943, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532682819
@@ -6185,7 +6185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.9298096, y: 108.21362}
+  m_AnchoredPosition: {x: -5.9296875, y: 108.21387}
   m_SizeDelta: {x: 391.3489, y: 216.428}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &642325873
@@ -7089,7 +7089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21621484, y: 0.7381089}
   m_AnchorMax: {x: 0.809654, y: 0.864}
-  m_AnchoredPosition: {x: -0.000061035156, y: 5.6879272}
+  m_AnchoredPosition: {x: 0, y: 5.6879883}
   m_SizeDelta: {x: -7.000366, y: 4.921997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &832107564
@@ -7832,9 +7832,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      - m_Target: {fileID: 1995341600}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButton
+        m_MethodName: PlayPageFlip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8141,9 +8141,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      - m_Target: {fileID: 1995341600}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButton
+        m_MethodName: PlayPageFlip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8984,9 +8984,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      - m_Target: {fileID: 1995341600}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButton
+        m_MethodName: PlayPageFlip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11469,9 +11469,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      - m_Target: {fileID: 1995341600}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButton
+        m_MethodName: PlayPageFlip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11861,7 +11861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10.474915, y: 169.01416}
+  m_AnchoredPosition: {x: 10.4748535, y: 169.01416}
   m_SizeDelta: {x: -394.25757, y: -2238.8003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1266931309
@@ -16090,7 +16090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.107419126, y: 0.062108852}
   m_AnchorMax: {x: 0.9008349, y: 0.1705646}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.00012207, y: -0.000030518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1895280286
@@ -17936,9 +17936,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      - m_Target: {fileID: 1995341600}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButton
+        m_MethodName: PlayPageFlip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

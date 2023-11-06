@@ -75,7 +75,7 @@ public class AudioManager : MonoBehaviour
     public void PlayRotateRoad(){
         if (GameData.InstanceData.onSound)
             // random use between pageFlip and PageTurn
-            audioSound.PlayOneShot(Random.Range(0, 2) == 0 ? pageFlip : pageTurn);
+            audioSound.PlayOneShot(pageTurn);
     }
 
     public void PlayWalk2(){
