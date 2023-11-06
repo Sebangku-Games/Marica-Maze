@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public GameObject WinText;
     public GameObject LoseText;
     public GameObject Tangkap;
-    public TMP_Text amountClickText;
+    public GameObject infoAmountToClick;
 
     //panel tutor
     public GameObject Panel1;
@@ -583,7 +583,18 @@ public class GameManager : MonoBehaviour
 
     public void UpdateAmountClickText(){
         int remainingClicks = levels[currentLevelIndex].amountClickToGetStar - amountClicked;
-        amountClickText.text = remainingClicks < 0 ? "0" : remainingClicks.ToString();
+        // find TMP object in child and update the text
+        infoAmountToClick.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = remainingClicks < 0 ? "0" : remainingClicks.ToString();
+
+
+
+        //infoAmountToClick.GetComponentInChildren<TextMeshProUGUI>().text = remainingClicks < 0 ? "0" : remainingClicks.ToString();
+
+        if (remainingClicks < 0)
+        {
+            // set child[1] to false
+            infoAmountToClick.transform.GetChild(1).gameObject.SetActive(false);    
+        }
     }
 
 
