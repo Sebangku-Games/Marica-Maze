@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
     public static GameData InstanceData;
+    public bool onSound = true;
 
     public int currentLevel = 0;
 

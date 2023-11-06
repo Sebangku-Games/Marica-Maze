@@ -86,6 +86,8 @@ public class Road : MonoBehaviour
         GameManager.Instance.amountClicked++;
         GameManager.Instance.UpdateAmountClickText();
 
+        AudioManager.instance.PlayRotateRoad();
+
         rotation = (rotation + 1) % (maxRotation + 1);
         currentRoad.transform.eulerAngles = new Vector3(0, 0, rotation * rotationMultiplier);
     }

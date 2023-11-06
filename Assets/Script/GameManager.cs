@@ -353,9 +353,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        AudioManager.instance.PlayWalk2();
         yield return new WaitForSeconds(2f);
         WinText.SetActive(true);
         DetermineStars();
+        AudioManager.instance.PlayGameOverSuccess();
         Time.timeScale = 0;
     }
     private void CheckLose()
@@ -397,8 +399,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameLose()
     {
+        AudioManager.instance.PlayWalk1();
         yield return new WaitForSeconds(1.5f);
         Tangkap.SetActive(true);
+        AudioManager.instance.PlayGameOverFail();
         Time.timeScale = 0;
     }
 
