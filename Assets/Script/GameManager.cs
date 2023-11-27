@@ -155,7 +155,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        StartCoroutine(ShowHint());
+        //StartCoroutine(ShowHint());
+        CheckFill();
     }
 
 
@@ -219,7 +220,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             roads[row, col].UpdateInput();
-            StartCoroutine(ShowHint());
+            StartCoroutine(ShowHint2());
 
         }
     }
@@ -241,9 +242,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ShowHint()
+    private IEnumerator ShowHint2()
     {
         yield return new WaitForSeconds(0.1f);
+        CheckFill();
+        // CheckWin();
+        // CheckLose();
+    }
+
+    private void ShowHint()
+    {
         CheckFill();
         CheckWin();
         CheckLose();
@@ -645,6 +653,10 @@ public class GameManager : MonoBehaviour
         isTutorialShowing = false;
         Time.timeScale = 1;
         Panel1.SetActive(false);
+    }
+
+    public void GoButton(){
+        ShowHint();
     }
 
 
