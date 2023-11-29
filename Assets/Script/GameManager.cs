@@ -185,6 +185,7 @@ public class GameManager : MonoBehaviour
         {
             LoseText.SetActive(true);
             GameAktif = false;
+            AudioManager.instance.PlayGameOverFail();
         }
 
         if (GameAktif)
@@ -410,7 +411,7 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlayWalk1();
         yield return new WaitForSeconds(1.5f);
         Tangkap.SetActive(true);
-        AudioManager.instance.PlayGameOverFail();
+        AudioManager.instance.PlayTertangkap();
         Time.timeScale = 0;
     }
 

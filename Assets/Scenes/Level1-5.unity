@@ -410,6 +410,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      propertyPath: tertangkap
+      value: 
+      objectReference: {fileID: 8300000, guid: e64064d3202be4540b54698c1bdf1aa6, type: 3}
+    - target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      propertyPath: gameOverFail
+      value: 
+      objectReference: {fileID: 8300000, guid: aa81c75fb17dd9c469f5af6188ce1e61, type: 3}
+    - target: {fileID: 4812898522963696465, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
+      propertyPath: gameOverSuccess
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d2bd6f56960c0c49acb14803ec31b3b, type: 3}
     - target: {fileID: 4812898522963696467, guid: 8837076d37c3cec4ca98856e75313627, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -5412,7 +5424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1495643850138120181, guid: 70b0b0fd291d5ef47a9b6a001ac53212, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.2134018
+      value: -0.2133789
       objectReference: {fileID: 0}
     - target: {fileID: 1495643850138120181, guid: 70b0b0fd291d5ef47a9b6a001ac53212, type: 3}
       propertyPath: m_AnchoredPosition.y

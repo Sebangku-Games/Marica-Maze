@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     //public AudioClip rotate;
     public AudioClip walk2Seconds;
     public AudioClip walk1Seconds;
+    public AudioClip tertangkap;
 
     private void Awake()
     {
@@ -86,5 +87,11 @@ public class AudioManager : MonoBehaviour
     public void PlayWalk1(){
         if (GameData.InstanceData.onSound)
             audioSound.PlayOneShot(walk1Seconds);
+    }
+
+    public void PlayTertangkap()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(tertangkap);
     }
 }
