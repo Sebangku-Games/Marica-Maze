@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip walk2Seconds;
     public AudioClip walk1Seconds;
     public AudioClip tertangkap;
+    public AudioClip loseStarTimer;
+    public AudioClip loseStarClick;
 
     private void Awake()
     {
@@ -93,5 +95,17 @@ public class AudioManager : MonoBehaviour
     {
         if (GameData.InstanceData.onSound)
             audioSound.PlayOneShot(tertangkap);
+    }
+
+    public void PlayLoseStarTimer()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(loseStarTimer);
+    }
+
+    public void PlayLoseStarClick()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(loseStarClick);
     }
 }

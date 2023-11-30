@@ -46,8 +46,7 @@ public class GameManager : MonoBehaviour
     public GameObject starend3;
 
     [SerializeField] private LevelData _level; // Store the current level data.
-
-    [SerializeField] public int amountClicked = 0;
+    public int amountClicked = 0;
     private bool clicksConditionMet = false;
     private bool timeConditionMet = false;
 
@@ -199,6 +198,7 @@ public class GameManager : MonoBehaviour
             if (!timeConditionMet && !IsClearedWithXAmountTime())
             {
                 Deactivate1Star();
+                AudioManager.instance.PlayLoseStarTimer();
                 timeConditionMet = true;
             }
         }
@@ -602,7 +602,8 @@ public class GameManager : MonoBehaviour
         if (remainingClicks < 0)
         {
             // set child[1] to false
-            infoAmountToClick.transform.GetChild(1).gameObject.SetActive(false);    
+            infoAmountToClick.transform.GetChild(1).gameObject.SetActive(false);
+            AudioManager.instance.PlayLoseStarClick();
         }
     }
 

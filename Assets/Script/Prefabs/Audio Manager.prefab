@@ -149,3 +149,6 @@ MonoBehaviour:
   gameOverSuccess: {fileID: 8300000, guid: c35fdfe5afa5e85478e53430abbed8b0, type: 3}
   walk2Seconds: {fileID: 8300000, guid: eba8aa9de7ecf55438140d34fc29a9c7, type: 3}
   walk1Seconds: {fileID: 8300000, guid: 19924b510458c48498095c215c0900ef, type: 3}
+  tertangkap: {fileID: 8300000, guid: e64064d3202be4540b54698c1bdf1aa6, type: 3}
+  loseStarTimer: {fileID: 8300000, guid: 772359c6df051dd438446b8c5d97a00d, type: 3}
+  loseStarClick: {fileID: 8300000, guid: 51a64a4c246387b4ca68579edcbc9acc, type: 3}
