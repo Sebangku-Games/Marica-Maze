@@ -192,6 +192,7 @@ public class GameManager : MonoBehaviour
             if (!clicksConditionMet && !IsClearedWithXAmountClicks())
             {
                 Deactivate1Star();
+                AudioManager.instance.PlayLoseStarClick();
                 clicksConditionMet = true;
             }
 
@@ -603,7 +604,6 @@ public class GameManager : MonoBehaviour
         {
             // set child[1] to false
             infoAmountToClick.transform.GetChild(1).gameObject.SetActive(false);
-            AudioManager.instance.PlayLoseStarClick();
         }
     }
 
