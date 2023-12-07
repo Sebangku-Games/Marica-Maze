@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip tertangkap;
     public AudioClip loseStarTimer;
     public AudioClip loseStarClick;
+    
 
     private void Awake()
     {

@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class LevelManagemen : MonoBehaviour
 {
+    private Animator animator;
+
     [SerializeField] Button[] buttons;
     int NomorLevelterbuka;
     private void Start()
     {
+        animator = GetComponent<Animator>();
+
         if (!PlayerPrefs.HasKey("levelyangterbuka"))
         {
             PlayerPrefs.SetInt("levelyangterbuka", 1);
@@ -18,6 +22,7 @@ public class LevelManagemen : MonoBehaviour
         {
             buttons[i].interactable = false;
         }
+
     }
     private void Update()
     {
@@ -27,5 +32,10 @@ public class LevelManagemen : MonoBehaviour
             buttons[i].interactable = true;
 
         }
+    }
+
+     public void buka()
+    {
+        animator.SetTrigger("Buka");
     }
 }
