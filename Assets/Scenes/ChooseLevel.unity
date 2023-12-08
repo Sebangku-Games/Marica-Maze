@@ -2568,6 +2568,7 @@ GameObject:
   - component: {fileID: 235804179}
   - component: {fileID: 235804181}
   - component: {fileID: 235804180}
+  - component: {fileID: 235804182}
   m_Layer: 5
   m_Name: PANEL MAP 2
   m_TagString: Untagged
@@ -2644,6 +2645,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235804178}
   m_CullTransparentMesh: 1
+--- !u!114 &235804182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235804178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d02edff6659a8746a25935d13297345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 0}
+  soundToggle: {fileID: 0}
 --- !u!1 &247904790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,16 +2878,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2008305387}
+        m_TargetAssemblyTypeName: mainmenu, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Home 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &256385335
@@ -6906,6 +6921,7 @@ GameObject:
   - component: {fileID: 643272652}
   - component: {fileID: 643272654}
   - component: {fileID: 643272653}
+  - component: {fileID: 643272655}
   m_Layer: 5
   m_Name: PANEL MAP 4
   m_TagString: Untagged
@@ -6982,6 +6998,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643272651}
   m_CullTransparentMesh: 1
+--- !u!114 &643272655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643272651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d02edff6659a8746a25935d13297345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 0}
+  soundToggle: {fileID: 0}
 --- !u!1 &644256993
 GameObject:
   m_ObjectHideFlags: 0
@@ -14671,6 +14701,7 @@ GameObject:
   - component: {fileID: 1554827843}
   - component: {fileID: 1554827845}
   - component: {fileID: 1554827844}
+  - component: {fileID: 1554827846}
   m_Layer: 5
   m_Name: PANEL MAP 3
   m_TagString: Untagged
@@ -14747,6 +14778,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554827842}
   m_CullTransparentMesh: 1
+--- !u!114 &1554827846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554827842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d02edff6659a8746a25935d13297345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 0}
+  soundToggle: {fileID: 0}
 --- !u!1 &1556421089
 GameObject:
   m_ObjectHideFlags: 0
@@ -15665,16 +15710,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 643272655}
+        m_TargetAssemblyTypeName: mainmenu, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Home 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1595617796
@@ -16456,16 +16501,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 235804182}
+        m_TargetAssemblyTypeName: mainmenu, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Home 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1721215917
@@ -19369,6 +19414,7 @@ GameObject:
   - component: {fileID: 2008305384}
   - component: {fileID: 2008305386}
   - component: {fileID: 2008305385}
+  - component: {fileID: 2008305387}
   m_Layer: 5
   m_Name: PANEL MAP 1
   m_TagString: Untagged
@@ -19444,6 +19490,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008305383}
   m_CullTransparentMesh: 1
+--- !u!114 &2008305387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008305383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d02edff6659a8746a25935d13297345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 0}
+  soundToggle: {fileID: 0}
 --- !u!1 &2021701567
 GameObject:
   m_ObjectHideFlags: 0
@@ -20108,16 +20168,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1554827846}
+        m_TargetAssemblyTypeName: mainmenu, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Home 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2059108812
